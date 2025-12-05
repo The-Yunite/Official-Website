@@ -57,7 +57,7 @@ export default function HomePage() {
           <button className='bg-white/20 backdrop-blur-md rounded-full shadow-lg py-3 px-6'><Link href="/">Get Started</Link></button>
         </div>
       </section>
-      <section className='w-full min-h-screen pt-16 mx-auto text-center'>
+      <section className='w-full min-h-screen mx-auto text-center'>
         <ScrollFloat
           animationDuration={1}
           ease='back.inOut(2)'

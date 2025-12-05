@@ -12,11 +12,20 @@ import {
     DrawerTrigger,
 } from "@/components/ui/drawer"
 import { Button } from './ui/button'
+import Image from 'next/image'
 
 const Navbar = () => {
     return (
         <header className='w-full flex justify-between items-center fixed z-10 top-0 py-5 font-semibold px-10 backdrop-blur-md bg-white/20 md:backdrop-blur-none md:bg-transparent'>
-            <span>Logo <span>Name</span></span>
+            <div className='flex items-center'>
+                <span><Image
+                    src={"/logo.png"}
+                    alt="Yunyt"
+                    width={40}
+                    height={40}
+                /></span>
+                <span>Yunyt</span>
+            </div>
             <nav className='hidden h-16 min-w-1/2 bg-white/20 backdrop-blur-md  mx-auto rounded-full px-4 md:flex justify-center items-center '>
                 <ul className='w-full flex items-center justify-around'>
                     <li className=''><Link href="/">Home</Link></li>
