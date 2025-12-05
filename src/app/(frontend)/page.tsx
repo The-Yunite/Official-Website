@@ -5,10 +5,9 @@
 // import config from '@/payload.config'
 import React from 'react'
 import Image from 'next/image'
-
-import PrismaticBurst from '@/components/PrismaticBurst'
 import BlurText from '@/components/BlurText'
 import ScrollFloat from '@/components/ScrollFloat'
+import Iridescence from '@/components/Iridescence'
 
 export default function HomePage() {
 
@@ -20,20 +19,14 @@ export default function HomePage() {
   // const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <main className='px-10 flex flex-col items-center min-h-screen relative '>
-      <div style={{ width: '100%', height: '100vh', position: 'fixed', top: 0, left: 0, zIndex: -10 }}>
-        <PrismaticBurst
-          animationType="rotate3d"
-          intensity={2}
-          speed={0.5}
-          distort={0}
-          paused={false}
-          offset={{ x: 0, y: 0 }}
-          hoverDampness={0}
-          rayCount={0}
-          mixBlendMode="lighten"
-          colors={[]}
-        />
+    <main className='px-10 flex flex-col items-center min-h-screen overflow-hidden'>
+      <div className=' fixed top-0 left-0 -z-10'>
+      <Iridescence
+        color={[0.5, 0.6, 0.8]}
+        mouseReact={false}
+        amplitude={0.1}
+        speed={1.0}
+      />
       </div>
       <section id='hero' className='w-full min-h-screen flex flex-col justify-center items-center'>
         <BlurText
@@ -45,7 +38,7 @@ export default function HomePage() {
           threshold={1}
           rootMargin='1px'
           // onAnimationComplete={}
-          className="w-full md:w-3/4 scroll-m-20 text-3xl md:text-7xl font-extrabold tracking-tight text-balance justify-center"
+          className="w-full md:w-3/4 scroll-m-20 text-3xl md:text-7xl font-extrabold tracking-tight text-balance justify-center text-shadow-lg"
         />
         <BlurText
           text="From hackathons to corporate events, workshops to printing solutions, Yunyt provides everything you need to make your events memorable and your brand stand out with PrintLab."
@@ -56,19 +49,19 @@ export default function HomePage() {
           threshold={1}
           rootMargin='1px'
           // onAnimationComplete={}
-          className="w-full md:w-3/4 text-gray-400 mt-5 font-semibold text-xl justify-center"
+          className="w-full md:w-3/4 text-gray-300 mt-5 font-semibold text-xl justify-center"
         />
         <div className='mt-10 font-semibold flex gap-5'>
-          <button className='bg-white/20 backdrop-blur-md rounded-full shadow-lg py-3 px-5'>Learn More</button>
-          <button className='bg-white/20 backdrop-blur-md rounded-full shadow-lg py-3 px-5'>Get Started</button>
+          <button className='bg-white text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6'>Learn More</button>
+          <button className='bg-white/20 backdrop-blur-md rounded-full shadow-lg py-3 px-6'>Get Started</button>
         </div>
       </section>
       <section className='w-full min-h-screen pt-16 mx-auto text-center'>
         <ScrollFloat
           animationDuration={1}
           ease='back.inOut(2)'
-          // scrollStart='top bottom+=50%'
-          // scrollEnd='center bottom-=40%'
+          scrollStart='top bottom+=50%'
+          scrollEnd='center bottom-=40%'
           stagger={0.07}
           textClassName='font-semibold'
         >
