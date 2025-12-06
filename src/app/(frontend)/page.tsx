@@ -7,7 +7,6 @@ import React from 'react'
 import Image from 'next/image'
 import BlurText from '@/components/BlurText'
 import ScrollFloat from '@/components/ScrollFloat'
-import Iridescence from '@/components/Iridescence'
 import Link from 'next/link'
 
 export default function HomePage() {
@@ -21,14 +20,6 @@ export default function HomePage() {
 
   return (
     <main className='px-10 flex flex-col items-center min-h-screen overflow-hidden'>
-      <div className=' fixed top-0 left-0 -z-10'>
-      <Iridescence
-        color={[0.5, 0.6, 0.8]}
-        mouseReact={false}
-        amplitude={0.1}
-        speed={1.0}
-      />
-      </div>
       <section id='hero' className='w-full min-h-screen flex flex-col justify-center items-center'>
         <BlurText
           text="There is a better way to run events and print."
@@ -54,7 +45,7 @@ export default function HomePage() {
         />
         <div className='mt-10 font-semibold flex gap-5'>
           <button className='bg-white text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6'><Link href="/">Learn More</Link></button>
-          <button className='bg-white/20 backdrop-blur-md rounded-full shadow-lg py-3 px-6'><Link href="/">Get Started</Link></button>
+          <button className='glassEffect rounded-full shadow-lg py-3 px-6'><Link href="/">Get Started</Link></button>
         </div>
       </section>
       <section className='w-full min-h-screen mx-auto text-center'>

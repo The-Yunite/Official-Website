@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Iridescence from "@/components/Iridescence";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +30,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased text-white relative`}
       >
-        <Navbar/>
+        <Navbar />
+        <div className=' fixed top-0 left-0 -z-10'>
+          <Iridescence
+            color={[0.5, 0.6, 0.8]}
+            mouseReact={false}
+            amplitude={0.1}
+            speed={1.0}
+          />
+        </div>
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

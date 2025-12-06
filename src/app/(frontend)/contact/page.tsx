@@ -1,6 +1,3 @@
-"use client"
-
-import Iridescence from '@/components/Iridescence'
 import { MapPin } from 'lucide-react'
 import React from 'react'
 
@@ -14,35 +11,27 @@ import {
 export default function Page() {
     return (
         <div className='px-10 pt-20 flex flex-col items-center min-h-screen overflow-hidden font-semibold'>
-            <div className=' fixed top-0 left-0 -z-10'>
-                <Iridescence
-                    color={[0.5, 0.6, 0.8]}
-                    mouseReact={false}
-                    amplitude={0.1}
-                    speed={1.0}
-                />
-            </div>
             <section className='w-full flex justify-between'>
                 <div>
                     <p>Get in Touch</p>
                     <p>Have questions about Yunyt, events, or collaborations? We're here to help!</p>
                     <ul className='flex flex-col gap-4 py-3'>
                         <li className='flex items-center gap-4'>
-                            <span className='rounded-full p-3 bg-white/20 backdrop-blur-lg'><MapPin /></span>
+                            <span className='rounded-full p-3 glassEffect backdrop-blur-lg'><MapPin /></span>
                             <span>
                                 <p>Office</p>
                                 <p className='text-gray-300'>New Delhi, India</p>
                             </span>
                         </li>
                         <li className='flex items-center gap-4'>
-                            <span className='rounded-full p-3 bg-white/20 backdrop-blur-lg'><MapPin /></span>
+                            <span className='rounded-full p-3 glassEffect backdrop-blur-lg'><MapPin /></span>
                             <span>
                                 <p>Office</p>
                                 <p className='text-gray-300'>New Delhi, India</p>
                             </span>
                         </li>
                         <li className='flex items-center gap-4'>
-                            <span className='rounded-full p-3 bg-white/20 backdrop-blur-lg'><MapPin /></span>
+                            <span className='rounded-full p-3 glassEffect backdrop-blur-lg'><MapPin /></span>
                             <span>
                                 <p>Office</p>
                                 <p className='text-gray-300'>New Delhi, India</p>

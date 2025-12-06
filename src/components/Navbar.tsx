@@ -16,7 +16,7 @@ import Image from 'next/image'
 
 const Navbar = () => {
     return (
-        <header className='w-full flex justify-between items-center fixed z-10 top-0 py-5 font-semibold px-10 backdrop-blur-md bg-white/20 md:backdrop-blur-none md:bg-transparent'>
+        <header className='w-full flex justify-between items-center fixed z-10 top-0 py-5 font-semibold px-10 glassEffect md:backdrop-blur-none md:bg-transparent'>
             <div className='flex items-center'>
                 <span><Image
                     src={"/logo.png"}
@@ -26,28 +26,29 @@ const Navbar = () => {
                 /></span>
                 <h1>Yunyt</h1>
             </div>
-            <nav className='hidden h-16 min-w-1/2 bg-white/20 backdrop-blur-md  mx-auto rounded-full px-4 md:flex justify-center items-center '>
+            <nav className='hidden h-16 min-w-1/2 glassEffect mx-auto rounded-full px-4 md:flex justify-center items-center '>
                 <ul className='w-full flex items-center justify-around'>
                     <li className=''><Link href="/">Home</Link></li>
-                    <li className=''><Link href="/">Home</Link></li>
-                    <li className=''><Link href="/">Home</Link></li>
-                    <li className=''><Link href="/">Home</Link></li>
-                    <li className=''><Link href="/">Home</Link></li>
+                    <li className=''><Link href="/our-events">Our Events</Link></li>
+                    <li className=''><Link href="/printLAB">PrintLAB</Link></li>
+                    <li className=''><Link href="/techLAB">TechLAB</Link></li>
+                    <li className=''><Link href="/aboutUs">About Us</Link></li>
+                    <li className=''><Link href="/contact">Contact Us</Link></li>
                 </ul>
             </nav>
-            <div className="hidden md:block">additional</div>
+            <div className="hidden md:block underline mb-1"><Link href="/joinUs">Join Yunyt</Link></div>
             <div className="md:hidden">
                 <Drawer>
                     <DrawerTrigger><Menu /></DrawerTrigger>
                     <DrawerContent className='text-black px-2'>
                         <DrawerTitle>Menu</DrawerTitle>
                         <ul className='w-full flex flex-col items-center py-2 gap-1.5'>
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/">Home</Link></li>
+                            <li className=''><Link href="/">Home</Link></li>
+                            <li className=''><Link href="/our-events">Our Events</Link></li>
+                            <li className=''><Link href="/printLAB">PrintLAB</Link></li>
+                            <li className=''><Link href="/techLAB">TechLAB</Link></li>
+                            <li className=''><Link href="/aboutUs">About Us</Link></li>
+                            <li className=''><Link href="/contact">Contact Us</Link></li>
                         </ul>
                         <DrawerFooter>
                             <DrawerClose>
