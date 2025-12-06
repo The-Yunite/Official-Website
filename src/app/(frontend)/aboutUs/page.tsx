@@ -3,22 +3,23 @@ import React from 'react'
 import BlurText from '@/components/BlurText'
 import ScrollFloat from '@/components/ScrollFloat'
 import Image from 'next/image'
+import FadeContent from '@/components/FadeContent'
 
 export default function TeamsPage() {
   return (
-    <main className='px-10 flex flex-col items-center min-h-screen overflow-hidden'>
+    <main className='px-10 py-24 flex flex-col items-center overflow-hidden'>
 
       {/* Hero Section */}
-      <section id='hero' className='w-full min-h-screen flex flex-col justify-center items-center'>
+      <section id='hero' className='w-full flex flex-col items-center'>
         <BlurText
-          text="Meet Our Expert Team"
+          text="About Us"
           delay={100}
           animateBy="words"
           direction="bottom"
           stepDuration={0.55}
           threshold={1}
           rootMargin='1px'
-          className="w-full md:w-3/4 scroll-m-20 text-3xl md:text-7xl font-extrabold tracking-tight text-balance justify-center text-shadow-lg"
+          className="w-full md:w-3/4 scroll-m-20 text-3xl md:text-6xl font-extrabold tracking-tight text-balance justify-center text-shadow-lg"
         />
         <BlurText
           text="Passionate team driving innovation, creativity, and flawless execution at Yunyt."
@@ -28,79 +29,151 @@ export default function TeamsPage() {
           stepDuration={0.35}
           threshold={1}
           rootMargin='1px'
-          className="w-full md:w-3/4 text-gray-300 mt-5 font-semibold text-xl justify-center"
+          className="w-full md:w-3/4 text-gray-300 font-semibold text-xl justify-center"
         />
+        <FadeContent delay={1} blur={true} duration={1000} ease="ease-out" initialOpacity={0} className=''>
+          <div className='glassEffect rounded-lg shadow-lg p-6 mt-10 text-center w-3/4 mx-auto'>
+            <p className='font-bold'>Our Mission</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis tenetur nesciunt a fuga odit repellendus mollitia officiis eveniet rerum? Ipsam nulla laudantium enim quod adipisci repudiandae iste, illo quaerat in quidem dolores.</p>
+          </div>
+        </FadeContent>
       </section>
 
       {/* Team Cards Section */}
-      <section className='w-full min-h-screen pt-16 mx-auto text-center'>
-        <ScrollFloat
-          animationDuration={1}
-          ease='back.inOut(2)'
-          scrollStart='top bottom+=50%'
-          scrollEnd='center bottom-=40%'
-          stagger={0.07}
-          textClassName='font-semibold text-4xl'
-        >
-          Our Core Team
-        </ScrollFloat>
-
+      <section className='w-full mx-auto text-center mt-10'>
+        <h3 className='font-bold text-4xl'>Our Core Team</h3>
         <div className='mt-10 grid md:grid-cols-3 gap-10'>
-          {/* Md Atif Khan */}
-          <div className='glassEffect rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transition'>
+          <div className=" relative w-[320px] h-[520px] glassEffect  rounded-4xl shadow-lg overflow-hidden border-2 border-white mx-auto">
             <Image
-              src="/Teams/atif.jpg" // replace with actual image path
-              alt="Md Atif Khan"
-              width={200}
-              height={200}
-              className="rounded-full shadow-lg"
+              src={"/shadab.jpg"}
+              alt="Team Member 1"
+              fill
+              className="object-cover"
             />
-            <h3 className='mt-5 text-2xl font-bold text-white'>Md Atif Khan</h3>
-            <p className='text-gray-300'>Co-Founder</p>
-            <p className='text-sm text-gray-400 mt-3'>
-              Visionary leader redefining events and brand experiences with innovation and strategy.
-            </p>
-            <button className='mt-5 bg-white text-black rounded-full py-2 px-6 font-semibold shadow hover:bg-gray-200 transition'>
-              Connect
-            </button>
-          </div>
+            {/* Top Text */}
+            <div className="absolute top-10 w-full text-center">
+              <h1 className="text-gray-200 text-2xl font-semibold tracking-wide text-shadow-lg bg-white/5 backdrop-blur-xs inline-block px-4 py-2 rounded-lg">
+                Mohd Shadab Khan
+              </h1>
+              <p className="text-gray-300 text-sm mt-1 text-shadow-lg bg-white/5 backdrop-blur-xs inline-block px-4 py-2 rounded-lg">
+                Software Engineer
+              </p>
+            </div>
 
-          {/* Mohd Shadab Khan */}
-          <div className='glassEffect rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transition'>
-            <Image
-              src="/Teams/shadab.jpg" // replace with actual image path
-              alt="Mohd Shadab Khan"
-              width={200}
-              height={200}
-              className="rounded-full shadow-lg"
-            />
-            <h3 className='mt-5 text-2xl font-bold text-white'>Mohd Shadab Khan</h3>
-            <p className='text-gray-300'>Co-Founder</p>
-            <p className='text-sm text-gray-400 mt-3'>
-              Strategic thinker shaping partnerships and growth, ensuring impactful delivery every time.
-            </p>
-            <button className='mt-5 bg-white text-black rounded-full py-2 px-6 font-semibold shadow hover:bg-gray-200 transition'>
-              Connect
-            </button>
-          </div>
+            {/* Bottom Glass Card */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%]">
+              <div className="flex items-center justify-between rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-4 py-3">
 
-          {/* Wajid Ali */}
-          <div className='glassEffect rounded-xl shadow-lg p-6 flex flex-col items-center text-center hover:scale-105 transition'>
+                {/* Avatar + Info */}
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-white text-sm font-semibold">
+                    Jav.
+                  </div>
+
+                  <div className="leading-tight">
+                    <p className="text-white text-sm font-medium">
+                      @javicodes
+                    </p>
+                    <p className="text-emerald-400 text-xs">
+                      Online
+                    </p>
+                  </div>
+                </div>
+
+                {/* Button */}
+                <button className="px-4 py-2 rounded-xl text-sm font-medium text-white bg-white/10 hover:bg-white/20 transition">
+                  Contact Me
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className=" relative w-[320px] h-[520px] glassEffect  rounded-4xl shadow-lg overflow-hidden border-2 border-white mx-auto">
             <Image
-              src="/Teams/wajid.jpg" // replace with actual image path
-              alt="Wajid Ali"
-              width={200}
-              height={200}
-              className="rounded-full shadow-lg"
+              src={"/shadab.jpg"}
+              alt="Team Member 1"
+              fill
+              className="object-cover"
             />
-            <h3 className='mt-5 text-2xl font-bold text-white'>Wajid Ali</h3>
-            <p className='text-gray-300'>Technical Executive</p>
-            <p className='text-sm text-gray-400 mt-3'>
-              Technical mastermind blending creativity with precision to deliver seamless solutions.
-            </p>
-            <button className='mt-5 bg-white text-black rounded-full py-2 px-6 font-semibold shadow hover:bg-gray-200 transition'>
-              Connect
-            </button>
+            {/* Top Text */}
+            <div className="absolute top-10 w-full text-center">
+              <h1 className="text-gray-200 text-2xl font-semibold tracking-wide text-shadow-lg bg-white/5 backdrop-blur-xs inline-block px-4 py-2 rounded-lg">
+                Mohd Shadab Khan
+              </h1>
+              <p className="text-gray-300 text-sm mt-1 text-shadow-lg bg-white/5 backdrop-blur-xs inline-block px-4 py-2 rounded-lg">
+                Software Engineer
+              </p>
+            </div>
+
+            {/* Bottom Glass Card */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%]">
+              <div className="flex items-center justify-between rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-4 py-3">
+
+                {/* Avatar + Info */}
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-white text-sm font-semibold">
+                    Jav.
+                  </div>
+
+                  <div className="leading-tight">
+                    <p className="text-white text-sm font-medium">
+                      @javicodes
+                    </p>
+                    <p className="text-emerald-400 text-xs">
+                      Online
+                    </p>
+                  </div>
+                </div>
+
+                {/* Button */}
+                <button className="px-4 py-2 rounded-xl text-sm font-medium text-white bg-white/10 hover:bg-white/20 transition">
+                  Contact Me
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className=" relative w-[320px] h-[520px] glassEffect  rounded-4xl shadow-lg overflow-hidden border-2 border-white mx-auto">
+            <Image
+              src={"/shadab.jpg"}
+              alt="Team Member 1"
+              fill
+              className="object-cover"
+            />
+            {/* Top Text */}
+            <div className="absolute top-10 w-full text-center">
+              <h1 className="text-gray-200 text-2xl font-semibold tracking-wide text-shadow-lg bg-white/5 backdrop-blur-xs inline-block px-4 py-2 rounded-lg">
+                Mohd Shadab Khan
+              </h1>
+              <p className="text-gray-300 text-sm mt-1 text-shadow-lg bg-white/5 backdrop-blur-xs inline-block px-4 py-2 rounded-lg">
+                Software Engineer
+              </p>
+            </div>
+
+            {/* Bottom Glass Card */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%]">
+              <div className="flex items-center justify-between rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 px-4 py-3">
+
+                {/* Avatar + Info */}
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-gray-800 flex items-center justify-center text-white text-sm font-semibold">
+                    Jav.
+                  </div>
+
+                  <div className="leading-tight">
+                    <p className="text-white text-sm font-medium">
+                      @javicodes
+                    </p>
+                    <p className="text-emerald-400 text-xs">
+                      Online
+                    </p>
+                  </div>
+                </div>
+
+                {/* Button */}
+                <button className="px-4 py-2 rounded-xl text-sm font-medium text-white bg-white/10 hover:bg-white/20 transition">
+                  Contact Me
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>

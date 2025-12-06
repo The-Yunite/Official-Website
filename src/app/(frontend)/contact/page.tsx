@@ -1,4 +1,4 @@
-import { MapPin } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import React from 'react'
 
 import {
@@ -10,7 +10,7 @@ import {
 
 export default function Page() {
     return (
-        <div className='px-10 pt-20 flex flex-col items-center min-h-screen overflow-hidden font-semibold'>
+        <div className='px-10 pt-24 flex flex-col items-center min-h-screen overflow-hidden font-semibold'>
             <section className='w-full flex justify-between'>
                 <div>
                     <p>Get in Touch</p>
@@ -24,17 +24,17 @@ export default function Page() {
                             </span>
                         </li>
                         <li className='flex items-center gap-4'>
-                            <span className='rounded-full p-3 glassEffect backdrop-blur-lg'><MapPin /></span>
+                            <span className='rounded-full p-3 glassEffect backdrop-blur-lg'><Mail /></span>
                             <span>
-                                <p>Office</p>
-                                <p className='text-gray-300'>New Delhi, India</p>
+                                <p>Email</p>
+                                <p className='text-gray-300'>weareyunyt@gmail.com</p>
                             </span>
                         </li>
                         <li className='flex items-center gap-4'>
-                            <span className='rounded-full p-3 glassEffect backdrop-blur-lg'><MapPin /></span>
+                            <span className='rounded-full p-3 glassEffect backdrop-blur-lg'><Phone /></span>
                             <span>
-                                <p>Office</p>
-                                <p className='text-gray-300'>New Delhi, India</p>
+                                <p>Phone</p>
+                                <p className='text-gray-300'>+91 9643748904</p>
                             </span>
                         </li>
                     </ul>

@@ -8,6 +8,7 @@ import Image from 'next/image'
 import BlurText from '@/components/BlurText'
 import ScrollFloat from '@/components/ScrollFloat'
 import Link from 'next/link'
+import AnimatedContent from '@/components/AnimatedContent'
 
 export default function HomePage() {
 
@@ -48,17 +49,32 @@ export default function HomePage() {
           <button className='glassEffect rounded-full shadow-lg py-3 px-6'><Link href="/">Get Started</Link></button>
         </div>
       </section>
-      <section className='w-full min-h-screen mx-auto text-center'>
-        <ScrollFloat
-          animationDuration={1}
-          ease='back.inOut(2)'
-          scrollStart='top center+=50%'
-          scrollEnd='center top+=20%'
-          stagger={0.07}
-          textClassName='font-semibold'
-        >
+      <section className='w-full my-10 mx-auto text-center'>
+        <h2 className='font-bold text-5xl'>
           Our Services
-        </ScrollFloat>
+        </h2>
+        <div className=' w-full mt-10 flex flex-wrap justify-center gap-7 grid-cols-3'>
+            <div className='glassEffect px-5 py-3 w-md rounded-lg' >
+              <h3 className='font-extrabold text-2xl'>Hackthone</h3>
+              <p className='text-balance'>Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences.</p>
+            </div>
+            <div className='glassEffect px-5 py-3 w-md rounded-lg' >
+              <h3 className='font-extrabold text-2xl'>Hackthone</h3>
+              <p className='text-balance'>Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences.</p>
+            </div>
+            <div className='glassEffect px-5 py-3 w-md rounded-lg' >
+              <h3 className='font-extrabold text-2xl'>Hackthone</h3>
+              <p className='text-balance'>Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences.</p>
+            </div>
+            <div className='glassEffect px-5 py-3 w-md rounded-lg' >
+              <h3 className='font-extrabold text-2xl'>Hackthone</h3>
+              <p className='text-balance'>Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences.</p>
+            </div>
+            <div className='glassEffect px-5 py-3 w-md rounded-lg' >
+              <h3 className='font-extrabold text-2xl'>Hackthone</h3>
+              <p className='text-balance'>Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences.</p>
+            </div>
+        </div>
       </section>
     </main>
   )
