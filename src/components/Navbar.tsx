@@ -1,13 +1,12 @@
+"use client"
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Menu } from 'lucide-react'
 import {
     Drawer,
     DrawerClose,
     DrawerContent,
-    DrawerDescription,
     DrawerFooter,
-    DrawerHeader,
     DrawerTitle,
     DrawerTrigger,
 } from "@/components/ui/drawer"
@@ -15,8 +14,20 @@ import { Button } from './ui/button'
 import Image from 'next/image'
 
 const Navbar = () => {
+
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 50);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header className='w-full flex justify-between items-center fixed z-10 top-0 py-5 font-semibold px-10 glassEffect md:backdrop-blur-none md:bg-transparent'>
+        <header className={`w-full flex justify-between items-center fixed z-10 top-0 py-5 font-semibold px-10 transition-all duration-300 glassEffect ${scrolled ? 'md:glassEffect' : 'md:backdrop-blur-none md:bg-transparent'}`}>
             <div className='flex items-center'>
                 <span><Image
                     src={"/logo.png"}
@@ -26,8 +37,8 @@ const Navbar = () => {
                 /></span>
                 <h1>Yunyt</h1>
             </div>
-            <nav className='hidden h-16 min-w-1/2 glassEffect mx-auto rounded-full px-4 md:flex justify-center items-center '>
-                <ul className='w-full flex items-center justify-around'>
+            <nav className={`hidden h-16 min-w-1/2 mx-auto rounded-full px-4 md:flex justify-center items-center transition-all duration-300 ${scrolled ? '' : 'glassEffect'}`}>
+                <ul className={`w-full flex items-center justify-around ${scrolled && "text-shadow-lg"}`}>
                     <li className=''><Link href="/">Home</Link></li>
                     <li className=''><Link href="/our-events">Our Events</Link></li>
                     <li className=''><Link href="/printLAB">PrintLAB</Link></li>

@@ -4,11 +4,8 @@
 // import { fileURLToPath } from 'url'
 // import config from '@/payload.config'
 import React from 'react'
-import Image from 'next/image'
 import BlurText from '@/components/BlurText'
-import ScrollFloat from '@/components/ScrollFloat'
 import Link from 'next/link'
-import AnimatedContent from '@/components/AnimatedContent'
 
 export default function HomePage() {
 
