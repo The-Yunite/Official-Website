@@ -5,7 +5,7 @@ import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
-
+import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Event } from './collections/Events'
@@ -35,5 +35,8 @@ export default buildConfig({
   sharp,
   plugins: [
     // storage-adapter-placeholder
+    formBuilderPlugin({
+      // see below for a list of available options
+    }),
   ],
 })

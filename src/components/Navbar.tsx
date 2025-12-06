@@ -24,7 +24,7 @@ const Navbar = () => {
                     width={40}
                     height={40}
                 /></span>
-                <span>Yunyt</span>
+                <h1>Yunyt</h1>
             </div>
             <nav className='hidden h-16 min-w-1/2 bg-white/20 backdrop-blur-md  mx-auto rounded-full px-4 md:flex justify-center items-center '>
                 <ul className='w-full flex items-center justify-around'>
