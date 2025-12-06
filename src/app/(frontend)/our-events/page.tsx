@@ -62,8 +62,8 @@ export default function EventsPage() {
         <ScrollFloat
           animationDuration={1}
           ease='back.inOut(2)'
-          scrollStart='top bottom+=50%'
-          scrollEnd='center bottom-=40%'
+          scrollStart='top center+=50%'
+          scrollEnd='center top+=20%'
           stagger={0.07}
           textClassName='font-semibold text-4xl'
         >
