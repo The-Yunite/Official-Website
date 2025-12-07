@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Iridescence from "@/components/Iridescence";
+import Plasma from "@/components/Plasma";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,15 +28,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white relative`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white relative`}
       >
         <Navbar />
-        <div className=' fixed top-0 left-0 -z-10'>
-          <Iridescence
-            color={[0.5, 0.6, 0.8]}
-            mouseReact={false}
-            amplitude={0.1}
-            speed={1.0}
+        <div className=' fixed top-0 left-0 -z-10 w-full h-full'>
+          <Plasma
+            color="#ff6b35"
+            speed={0.6}
+            direction="forward"
+            scale={1.1}
+            opacity={0.8}
+            mouseInteractive={true}
           />
         </div>
         {children}
