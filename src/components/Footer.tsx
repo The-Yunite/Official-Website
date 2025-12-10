@@ -48,7 +48,7 @@ const Footer = () => {
             </div>
             <hr />
             <div className='flex items-center justify-between px-5 py-7'>
-                <div>&copy; 2024 Yunyt. All rights reserved.</div>
+                <div>&copy; 2025 Yunyt. All rights reserved.</div>
                 <ul className='flex items-center justify-center gap-3'>
                     <li><Link href="/">Policies</Link></li>
                     <li><Link href="/">Terms</Link></li>
