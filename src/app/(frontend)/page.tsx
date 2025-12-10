@@ -8,6 +8,7 @@ import BlurText from '@/components/BlurText'
 import Link from 'next/link'
 import CardSwap, { Card } from '@/components/CardSwap'
 import { CalendarCheck, MonitorCloud, PaintBucket } from 'lucide-react'
+import SpotlightCard from '@/components/SpotlightCard'
 
 export default function HomePage() {
 
@@ -22,19 +23,19 @@ export default function HomePage() {
     <main className='mt-24 md:mt-12 px-8 md:px-10 flex flex-col items-center min-h-screen overflow-hidden'>
       <section id='hero' className='w-full flex flex-col md:flex-row justify-center'>
         <div className='flex flex-col justify-center md:flex-[60%]'>
-            <BlurText
-              text="There is a better way to run events and prints."
-              delay={100}
-              animateBy="words"
-              direction="bottom"
-              stepDuration={0.55}
-              threshold={1}
-              rootMargin='1px'
-              // onAnimationComplete={}
-              className="w-full inline-block scroll-m-20 text-5xl md:text-7xl font-extrabold tracking-tight text-shadow-lg "
-            />
           <BlurText
-            text="From hackathons to corporate events, workshops to printing solutions, Yunyt provides everything you need to make your events memorable and your brand stand out with PrintLab."
+            text="Accelerate Your Brand’s Growth with Yunyt."
+            delay={100}
+            animateBy="words"
+            direction="bottom"
+            stepDuration={0.55}
+            threshold={1}
+            rootMargin='1px'
+            // onAnimationComplete={}
+            className="w-full inline-block scroll-m-20 text-5xl md:text-7xl font-extrabold tracking-tight text-shadow-lg "
+          />
+          <BlurText
+            text="From hackathons to corporate events, workshops to Tech and printing solutions, Yunyt provides everything you need to make your brand memorable and stand out."
             delay={0}
             animateBy="words"
             direction="bottom"
@@ -78,11 +79,11 @@ export default function HomePage() {
           Our Services
         </h2>
         <div className=' w-full mt-10 flex flex-wrap justify-center gap-7'>
-          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover border border-[#ff6b35]' >
+          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover' >
             <h3 className='font-extrabold text-2xl'>Hackthone</h3>
             <p className='text-balance'>Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences.</p>
           </div>
-          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover' >
+          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover ' >
             <h3 className='font-extrabold text-2xl'>Corporate Events</h3>
             <p className='text-balance'>Professional corporate event planning with seamless logistics, team building activities, and brand integration.</p>
           </div>
@@ -109,27 +110,21 @@ export default function HomePage() {
           About Yunyt
         </h1>
         <div className='mt-5 text-gray-300 text-balance flex flex-col gap-4 text-xl'>
-          <p>
-            Yunyt is your comprehensive partner for event management and printing solutions. We believe there's a better way to organize events and bring your brand to life through premium print products.
-          </p>
-          From intimate workshops to large-scale conferences, we handle every detail with precision and care. Our team of experienced event coordinators ensures your vision becomes reality, while our PrintLab division delivers top-quality branded materials that make lasting impressions.
-          <p>
-            With years of experience in the industry, we've successfully managed hundreds of events ranging from innovative hackathons to corporate gatherings, always maintaining our commitment to excellence and client satisfaction.
-          </p>
+          <p>Yunyt is a cutting-edge event management and printing solutions platform designed to streamline the organization and execution of various events. Whether you're planning a hackathon, corporate event, workshop, or conference, Yunyt provides comprehensive tools and services to ensure your event runs smoothly from start to finish.</p>
         </div>
-        <div className='mt-10 flex justify-center gap-20 text-center text-2xl text-gray-300'>
-          <span>
+        <div className='mt-10 flex flex-wrap justify-center gap-10 md:gap-16 text-center text-2xl text-gray-300'>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover" spotlightColor="rgba(255, 107, 53, 0.3)">
             <b className='text-5xl text-white'>10</b>
             <p>Events managed</p>
-          </span>
-          <span>
+          </SpotlightCard>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover" spotlightColor="rgba(255, 107, 53, 0.3)">
             <b className='text-5xl text-white'>500</b>
             <p>Events managed</p>
-          </span>
-          <span>
+          </SpotlightCard>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover" spotlightColor="rgba(255, 107, 53, 0.3)">
             <b className='text-5xl text-white'>98%</b>
             <p>Events managed</p>
-          </span>
+          </SpotlightCard>
         </div>
       </section>
     </main>
