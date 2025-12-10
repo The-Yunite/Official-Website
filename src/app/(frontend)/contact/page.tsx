@@ -1,6 +1,5 @@
-"use client"
 import { Mail, MapPin, Phone } from 'lucide-react'
-import React, { useState } from 'react'
+import React from 'react'
 
 import {
     Accordion,
@@ -8,48 +7,13 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import CustomForm from '@/components/CustomForm'
 
 export default function Page() {
 
-    const [result, setResult] = useState("");
-    const [isSuccess, setIsSuccess] = useState(false)
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
-    const onSubmit = async () => {
-        // event.preventDefault();
-        // setIsSubmitting(true);
-        // setResult("Sending...");
-        // const formData = new FormData(event.target);
-
-        // try {
-        //     const response = await axios.post(sendMessageApiEndPoint, formData, {
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         }
-        //     })
-        //     const apiResponse = await response.data;
-        //     if (apiResponse.success) {
-        //         setIsSuccess(true);
-        //         setResult("✅ Your message has been sent successfully!");
-        //         toast.success("Your message has been sent successfully!")
-        //         event.target.reset();
-        //     } else {
-        //         setIsSuccess(false);
-        //         setResult(apiResponse.error || "❌ Something went wrong. Please try again later.");
-        //         toast.error(apiResponse.error || "Something went wrong. Please try again later.")
-        //     }
-        // } catch (err) {
-        //     setIsSuccess(false);
-        //     setResult(err.response?.data?.error || "❌ Network error. Please check your connection.");
-        //     toast.error(err.response?.data?.error || "Network error. Please check your connection.")
-        // } finally {
-        //     setIsSubmitting(false);
-        // }
-    };
-
     return (
         <div className='px-10 pt-24 flex flex-col items-center min-h-screen overflow-hidden font-semibold'>
-            <section className='w-full flex justify-between'>
+            <section className='w-full flex justify-center gap-20 flex-wrap md:flex-nowrap'>
                 <div>
                     <p className='text-3xl font-bold mb-2'>Get in Touch</p>
                     <p>Have questions about Yunyt, events, or collaborations? We're here to help!</p>
@@ -77,67 +41,7 @@ export default function Page() {
                         </li>
                     </ul>
                 </div>
-                <div className=''>
-                    <h2 className="text-3xl font-bold w-md py-8">Send us a Message</h2>
-                    <form onSubmit={onSubmit} className="space-y-6 -md">
-                        {/* Name */}
-                        <div>
-                            <label className="block mb-2 text-sm font-medium">Name</label>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Your Name"
-                                required
-                                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                            />
-                        </div>
-
-                        {/* Email */}
-                        <div>
-                            <label className="block mb-2 text-sm font-medium">Email</label>
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="your@email.com"
-                                required
-                                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                            />
-                        </div>
-
-                        {/* Message */}
-                        <div>
-                            <label className="block mb-2 text-sm font-medium">Message</label>
-                            <textarea
-                                name="message"
-                                rows={5}
-                                placeholder="Your message..."
-                                required
-                                className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition"
-                            ></textarea>
-                        </div>
-
-                        {/* Button */}
-                        <button
-                            type="submit"
-                            disabled={isSubmitting}
-                            className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 shadow-lg transition font-medium"
-                        >
-                            {isSubmitting ? "Sending..." : "Send Message"}
-                        </button>
-
-                        {/* Result */}
-                        {result && (
-                            <p
-                                className={`mt-4 text-center p-3 rounded-xl ${isSuccess
-                                    ? "bg-green-600/20 text-green-300 border border-green-500/30"
-                                    : "bg-red-600/20 text-red-300 border border-red-500/30"
-                                    }`}
-                            >
-                                {result}
-                            </p>
-                        )}
-                    </form>
-                </div>
+                <CustomForm showHeading={true}/>
             </section>
             <section className='my-10 w-full'>
                 <p className='text-center text-shadow-lg font-bold text-5xl my-5'>Frequently Asked Questions</p>

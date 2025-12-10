@@ -7,10 +7,66 @@ import React from 'react'
 import BlurText from '@/components/BlurText'
 import Link from 'next/link'
 import CardSwap, { Card } from '@/components/CardSwap'
-import { CalendarCheck, MonitorCloud, PaintBucket } from 'lucide-react'
+import { ArrowUpRight, Bot, Calendar, CalendarCheck, Coffee, Globe, MapPin, MonitorCloud, PaintBucket, Shirt, SquareUser, Workflow } from 'lucide-react'
 import SpotlightCard from '@/components/SpotlightCard'
+import CustomForm from '@/components/CustomForm'
+import Image from 'next/image'
 
 export default function HomePage() {
+
+  const events = [
+    {
+      id: "12345",
+      status: "Past",
+      participantsCount: 200,
+      image: {
+        src: "https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png",
+        alt: "Brainhack Ideathon",
+      },
+      title: "Brainhack Ideathon",
+      date: "November 17, 2025",
+      location: "Jamia Hamdard, New Delhi, India",
+      type: "Ideathon",
+      actions: {
+        href: "/",
+        label: "Learn More",
+      }
+    },
+    {
+      id: "12346",
+      status: "Past",
+      participantsCount: 200,
+      image: {
+        src: "https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png",
+        alt: "Brainhack Ideathon",
+      },
+      title: "Brainhack Ideathon",
+      date: "November 17, 2025",
+      location: "Jamia Hamdard, New Delhi, India",
+      type: "Ideathon",
+      actions: {
+        href: "/",
+        label: "Learn More",
+      }
+    },
+    {
+      id: "12347",
+      status: "Past",
+      participantsCount: "200 Participents",
+      image: {
+        src: "https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png",
+        alt: "Brainhack Ideathon",
+      },
+      title: "Brainhack Ideathon",
+      date: "November 17, 2025",
+      location: "Jamia Hamdard, New Delhi, India",
+      type: "Ideathon",
+      actions: {
+        href: "/",
+        label: "Learn More",
+      }
+    },
+  ]
 
   // const headers = await getHeaders()
   // const payloadConfig = await config
@@ -61,15 +117,27 @@ export default function HomePage() {
           >
             <Card>
               <h3 className='border-b p-2 flex items-center gap-1'><CalendarCheck />Events</h3>
-              <p>Your content here</p>
+              <div className='w-full h-full flex items-center justify-start flex-col p-10 text-balance text-center'>
+                <CalendarCheck size={100}/>
+                <h1 className='text-2xl'>Event Management</h1>
+                <h2 className='text-gray-300'>Yunyt offers comprehensive event management solutions designed for organizations of all sizes, ensuring smooth operations and high-impact engagement across tech events, corporate meets, and educational workshops.</h2>
+              </div>
             </Card>
             <Card>
               <h3 className='border-b p-2 flex items-center gap-1'><MonitorCloud />TechLab</h3>
-              <p>Your content here</p>
+              <div className='w-full h-full flex items-center justify-start flex-col p-10 text-balance text-center'>
+                <MonitorCloud size={100}/>
+                <h1 className='text-2xl'>Tech Solutions</h1>
+                <h2 className='text-gray-300'>With a focus on reliability and innovation, Yunyt delivers scalable digital solutions including web development, workflow automation, and advanced AI/ML implementations.</h2>
+              </div>
             </Card>
             <Card>
               <h3 className='border-b p-2 flex items-center gap-1'><PaintBucket />PrintLab</h3>
-              <p>Your content here</p>
+              <div className='w-full h-full flex items-center justify-start flex-col p-10 text-balance text-center'>
+                <PaintBucket size={100}/>
+                <h1 className='text-2xl'>Merchandise Printing</h1>
+                <h2 className='text-gray-300'>Our PrintLabs team provides reliable, premium-grade printing services tailored for events and businesses, delivering everything from signage and brochures to branded giveaways.</h2>
+              </div>
             </Card>
           </CardSwap>
         </div>
@@ -105,6 +173,87 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <section className='my-10'>
+        <div className='max-w-3xl'>
+          <p className='font-bold text-5xl'>Our Events</p>
+          <p className='text-gray-300 my-5 font-semibold text-xl'>Discover our portfolio of memorable events and upcoming opportunities</p>
+        </div>
+        <div className='flex flex-wrap justify-around gap-6 my-10 text-gray-300'>
+          {events.map((event) => (
+            <div key={event.id} className="duration-500 w-xs bg-neutral-900 relative group border border-white/10 rounded-3xl backdrop-blur-xl overflow-hidden shadow-2xl hover:shadow-[#6b554e] transition transform hover:-translate-y-3 hover:scale-105">
+              <div className='w-full flex justify-between items-center p-4 absolute top-0 z-10'>
+                <span className='rounded-full px-3 bg-neutral-800 font-semibold'>{event.status}</span>
+                <span className='rounded-full px-3 bg-neutral-800 font-semibold'>{event.participantsCount}</span>
+              </div>
+              <div className='relative top-0 w-full aspect-video rounded-3xl'>
+                <Image
+                  src={event.image.src}
+                  // objectFit='contain'
+                  fill
+                  alt={event.image.alt}
+                  className='w-full object-cover group-hover:scale-105 transition-transform duration-500'
+                />
+              </div>
+              <div className='p-5'>
+                <b className='text-xl text-white'>{event.title}</b>
+                <p className='flex items-center gap-1'><Calendar size={18} className='inline-block' />{event.date}</p>
+                <p className='flex items-center gap-1'><MapPin size={18} className='inline-block' />{event.location}</p>
+                <p className='flex items-center gap-1 my-1'>{event.type}</p>
+                <button className=' rounded-full relative hover:glassEffect hover:scale-110 transition-transform duration-500 w-full border border-[#ff6b35] py-1 my-3 font-semibold'><Link href={event.actions.href}>{event.actions.label}</Link></button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button className='bg-white text-black backdrop-blur-md text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'><Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link></button>
+      </section>
+      <section className='my-10'>
+        <div className='max-w-3xl'>
+          <p className='font-bold text-5xl'>TechLab</p>
+          <p className='text-gray-300 my-5 font-semibold text-xl'>Empowering Businesses With Reliable Web, Automation, and AI Services</p>
+        </div>
+        <div className='my-10 flex flex-wrap justify-center gap-10 md:gap-16 text-center text-gray-300'>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover mx-auto text-center w-xs" spotlightColor="rgba(255, 107, 53, 0.3)">
+            <Globe size={70} className='mx-auto' />
+            <p className='text-xl font-semibold'>Web Apps</p>
+            <p>Let us create your website and build your online presence so you can share your services with the world.</p>
+          </SpotlightCard>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover w-xs" spotlightColor="rgba(255, 107, 53, 0.3)">
+            <Workflow size={70} className='mx-auto' />
+            <p className='text-xl font-semibold'>Automations</p>
+            <p>We automate your repetitive tasks so you can focus on what truly matters.”</p>
+          </SpotlightCard>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover w-xs" spotlightColor="rgba(255, 107, 53, 0.3)">
+            <Bot size={70} className='mx-auto' />
+            <p className='text-xl font-semibold'>AI ML</p>
+            <p>Integrate AI to make your business smarter, faster, and up-to-date.</p>
+          </SpotlightCard>
+        </div>
+        <button className='bg-white text-black backdrop-blur-md text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'><Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link></button>
+      </section>
+      <section className='my-10'>
+        <div className='max-w-3xl'>
+          <p className='font-bold text-5xl'>PrintLab</p>
+          <p className='text-gray-300 my-5 font-semibold text-xl'>Premium printing solutions to elevate your brand and make lasting impressions</p>
+        </div>
+        <div className='my-10 flex flex-wrap justify-center gap-10 md:gap-16 text-center text-gray-300'>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover mx-auto text-center w-xs" spotlightColor="rgba(255, 107, 53, 0.3)">
+            <Shirt size={70} className='mx-auto' />
+            <p className='text-xl font-semibold'>Custom T-Shirts</p>
+            <p>High-quality screen printing and embroidery on premium fabrics</p>
+          </SpotlightCard>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover w-xs" spotlightColor="rgba(255, 107, 53, 0.3)">
+            <Coffee size={70} className='mx-auto' />
+            <p className='text-xl font-semibold'>Branded Cups</p>
+            <p>Eco-friendly cups with vibrant custom designs for any event</p>
+          </SpotlightCard>
+          <SpotlightCard className="custom-spotlight-card scaleOnHover w-xs" spotlightColor="rgba(255, 107, 53, 0.3)">
+            <SquareUser size={70} className='mx-auto' />
+            <p className='text-xl font-semibold'>Name Badges</p>
+            <p>Professional badge printing with lanyards and holders</p>
+          </SpotlightCard>
+        </div>
+        <button className='bg-white text-black backdrop-blur-md text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'><Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link></button>
+      </section>
       <section className='w-full my-10 mx-auto text-center'>
         <h1 className='font-bold text-5xl'>
           About Yunyt
@@ -119,13 +268,30 @@ export default function HomePage() {
           </SpotlightCard>
           <SpotlightCard className="custom-spotlight-card scaleOnHover" spotlightColor="rgba(255, 107, 53, 0.3)">
             <b className='text-5xl text-white'>500</b>
-            <p>Events managed</p>
+            <p>Happy Attendees</p>
           </SpotlightCard>
           <SpotlightCard className="custom-spotlight-card scaleOnHover" spotlightColor="rgba(255, 107, 53, 0.3)">
             <b className='text-5xl text-white'>98%</b>
-            <p>Events managed</p>
+            <p>Cleint Satisfaction</p>
           </SpotlightCard>
         </div>
+      </section>
+      <section className='flex items-center flex-col my-10'>
+        <p className='font-bold text-5xl'>Get in Touch</p>
+        <p className='text-gray-300 my-5 font-semibold text-xl'>Ready to make your next event unforgettable? Let's discuss your project.</p>
+        <CustomForm showHeading={false} />
+        <div className='mt-5 text-center'>
+          <p className='text-gray-300 text-xl'>
+            Or reach us directly at:
+          </p>
+          <p className='text-xl font-semibold text-[#f0bba7eb]'>
+            weareyunyt@gmail.com
+          </p>
+        </div>
+      </section>
+      <section className='my-10 flex flex-col items-center gap-5'>
+        <p className='font-bold text-5xl'>Join Our Team</p>
+        <button className='bg-white text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6 scaleOnHover font-semibold'><Link href="/">Join Now<ArrowUpRight className='inline-block' /></Link></button>
       </section>
     </main>
   )
