@@ -39,12 +39,12 @@ const Navbar = () => {
             </div>
             <nav className={`hidden h-16 min-w-1/2 mx-auto rounded-full px-4 md:flex justify-center items-center transition-all duration-300 ${scrolled ? '' : 'glassEffect'}`}>
                 <ul className={`w-full flex items-center justify-around ${scrolled && "text-shadow-lg"}`}>
-                    <li className=''><Link href="/">Home</Link></li>
-                    <li className=''><Link href="/our-events">Our Events</Link></li>
-                    <li className=''><Link href="/printLAB">PrintLAB</Link></li>
-                    <li className=''><Link href="/techLAB">TechLAB</Link></li>
-                    <li className=''><Link href="/aboutUs">About Us</Link></li>
-                    <li className=''><Link href="/contact">Contact Us</Link></li>
+                    <li className='popOnHover scaleOnHover'><Link href="/">Home</Link></li>
+                    <li className='popOnHover scaleOnHover'><Link href="/our-events">Our Events</Link></li>
+                    <li className='popOnHover scaleOnHover'><Link href="/printLAB">PrintLAB</Link></li>
+                    <li className='popOnHover scaleOnHover'><Link href="/techLAB">TechLAB</Link></li>
+                    <li className='popOnHover scaleOnHover'><Link href="/aboutUs">About Us</Link></li>
+                    <li className='popOnHover scaleOnHover'><Link href="/contact">Contact Us</Link></li>
                 </ul>
             </nav>
             <div className="hidden md:block underline mb-1"><Link href="/joinUs">Join Yunyt</Link></div>
