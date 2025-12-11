@@ -120,3 +120,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .glassEffect {
+    @apply backdrop-blur-md bg-white/10;
+  }
+  .scaleOnHover {
+    @apply hover:scale-105 transition-transform duration-100;
+  }
+  .popOnHover {
+    @apply hover:-translate-y-1 transition-transform duration-100;
+  }
+}
