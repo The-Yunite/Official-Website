@@ -148,7 +148,7 @@ export default function HomePage() {
         </h2>
         <div className=' w-full mt-10 flex flex-wrap justify-center gap-7'>
           <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover' >
-            <h3 className='font-extrabold text-2xl'>Hackthone</h3>
+            <h3 className='font-extrabold text-2xl'>Hackthons</h3>
             <p className='text-balance'>Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences.</p>
           </div>
           <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover ' >
