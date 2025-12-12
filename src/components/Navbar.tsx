@@ -13,7 +13,6 @@ import {
 import { Button } from './ui/button'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import path from 'path'
 
 const Navbar = () => {
 
@@ -39,7 +38,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className={`w-full flex justify-between items-center fixed z-10 top-0 py-5 font-semibold px-10 transition-all duration-300 glassEffect ${scrolled ? 'md:glassEffect' : 'md:backdrop-blur-none md:bg-transparent'}`}>
+        <header className={`w-full primaryFontColor flex justify-between items-center fixed z-10 top-0 py-5 px-10 transition-all duration-300 glassEffect ${scrolled ? 'md:glassEffect' : 'md:backdrop-blur-none md:bg-transparent'}`}>
             <div className='flex items-center'>
                 <span><Image
                     src={"/logo.png"}
@@ -47,12 +46,12 @@ const Navbar = () => {
                     width={40}
                     height={40}
                 /></span>
-                <h1>Yunyt</h1>
+                <h1 className=' font-semibold text-lg'>Yunyt</h1>
             </div>
             <nav className={`hidden h-16 min-w-1/2 mx-auto rounded-full px-4 md:flex justify-center items-center transition-all duration-300 ${scrolled ? '' : 'glassEffect'}`}>
                 <ul className={`w-full flex items-center justify-around ${scrolled && "text-shadow-lg"}`}>
                     {pages.map((page) => (  
-                        <li key={page.href} className={`popOnHover scaleOnHover ${(pathname === page.href) && " "}`}><Link href={page.href}>{page.name}</Link></li>
+                        <li key={page.href} className={`popOnHover scaleOnHover ${(pathname === page.href) && " font-semibold list-disc ml-2"}`}><Link href={page.href}>{page.name}</Link></li>
                     ))}
                 </ul>
             </nav>

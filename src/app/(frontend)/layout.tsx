@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Plasma from "@/components/Plasma";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const amarna = localFont({
+  src: [
+    { path: './../../../public/fonts/Amarna-VariableFont_wght.ttf', style: "normal" },
+    { path: './../../../public/fonts/Amarna-Italic-VariableFont_wght.ttf', style: "italic" },
+    // Add more weights/styles if you want
+  ],
+  variable: "--font-amarna"
 });
 
 export const metadata: Metadata = {
@@ -28,19 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white relative`}
+        className={`${amarna.variable} antialiased relative text-white`}
       >
+        <div className="fixed top-0 -z-10 bg-[linear-gradient(to_bottom,#badfe7_0%,#badfe7_30%,#eab6d1_100%)] h-screen w-screen" /> 
         <Navbar />
-        <div className=' fixed top-0 left-0 -z-10 w-full h-full'>
-          <Plasma
-            color="#ff6b35"
-            speed={0.6}
-            direction="forward"
-            scale={1.1}
-            opacity={0.8}
-            mouseInteractive={true}
-          />
-        </div>
         {children}
         <Footer />
       </body>

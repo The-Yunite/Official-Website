@@ -6,11 +6,11 @@
 import React from 'react'
 import BlurText from '@/components/BlurText'
 import Link from 'next/link'
-import CardSwap, { Card } from '@/components/CardSwap'
-import { ArrowUpRight, Bot, Calendar, CalendarCheck, Coffee, Globe, MapPin, MonitorCloud, PaintBucket, Shirt, SquareUser, Workflow } from 'lucide-react'
+import { ArrowUpRight, Bot, Calendar, Coffee, Globe, MapPin, Shirt, SquareUser, Workflow } from 'lucide-react'
 import SpotlightCard from '@/components/SpotlightCard'
 import CustomForm from '@/components/CustomForm'
 import Image from 'next/image'
+import { title } from 'process'
 
 export default function HomePage() {
 
@@ -68,6 +68,35 @@ export default function HomePage() {
     },
   ]
 
+  const services = [
+    {
+      id : "1234",
+      title : "Hackthon",
+      desc : "Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences."
+    },
+    {
+      id : "1235",
+      title : "Corporate Events",
+      desc : "Professional corporate event planning with seamless logistics, team building activities, and brand integration."    },
+    {
+      id : "1236",
+      title : "Workshops",
+      desc : "Interactive workshop organization with expert facilitation, hands-on learning, and participant engagement tools."
+    },
+    {
+      id : "1237",
+      title : "Conferences",
+      desc : "Large-scale conference management with speaker coordination, attendee engagement, and technical support."    },
+    {
+      id : "1238",
+      title : "Product Launches",
+      desc : "Memorable product launch events with media coverage, influencer engagement, and brand storytelling."    },
+    {
+      id : "1239",
+      title : "Team Building",
+      desc : "Custom team building experiences designed to strengthen collaboration and boost workplace morale."    },
+  ]
+
   // const headers = await getHeaders()
   // const payloadConfig = await config
   // const payload = await getPayload({ config: payloadConfig })
@@ -76,7 +105,7 @@ export default function HomePage() {
   // const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
-    <main className='mt-24 md:mt-12 px-8 md:px-10 flex flex-col items-center min-h-screen overflow-hidden'>
+    <main className='mt-24 px-8 md:px-10 flex flex-col items-center min-h-screen overflow-hidden'>
       <section id='hero' className='w-full flex flex-col md:flex-row justify-center'>
         <div className='flex flex-col justify-center md:flex-[60%]'>
           <BlurText
@@ -88,7 +117,7 @@ export default function HomePage() {
             threshold={1}
             rootMargin='1px'
             // onAnimationComplete={}
-            className="w-full inline-block scroll-m-20 text-5xl md:text-7xl font-extrabold tracking-tight text-shadow-lg "
+            className="w-full inline-block scroll-m-20 text-5xl md:text-7xl font-extrabold tracking-tight text-shadow-xs "
           />
           <BlurText
             text="From hackathons to corporate events, workshops to Tech and printing solutions, Yunyt provides everything you need to make your brand memorable and stand out."
@@ -99,78 +128,28 @@ export default function HomePage() {
             threshold={1}
             rootMargin='1px'
             // onAnimationComplete={}
-            className="w-full md:w-3/4 text-gray-300 mt-2 md:mt-5 font-semibold text-xl"
+            className="w-full md:w-3/4 mt-2 md:mt-5 text-shadow-xs text-xl"
           />
           <div className='mt-5 md:mt-10 font-semibold flex gap-5'>
             <button className='bg-white text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6 scaleOnHover'><Link href="/">Learn More</Link></button>
-            <button className='glassEffect rounded-full shadow-lg py-3 px-6 scaleOnHover'><Link href="/">Get Started</Link></button>
+            <button className=' hover:glassEffect border border-white text-shadow-xs rounded-full  py-3 px-6 scaleOnHover'><Link href="/">Get Started</Link></button>
           </div>
         </div>
-        <div className="md:flex-[40%] h-60 md:h-[600px] relative ">
-          <CardSwap
-            cardDistance={40}
-            verticalDistance={70}
-            delay={2800}
-            pauseOnHover={false}
-            skewAmount={6}
-            easing='elastic'
-          >
-            <Card>
-              <h3 className='border-b p-2 flex items-center gap-1'><CalendarCheck />Events</h3>
-              <div className='w-full h-full flex items-center justify-start flex-col p-10 text-balance text-center'>
-                <CalendarCheck size={100}/>
-                <h1 className='text-2xl'>Event Management</h1>
-                <h2 className='text-gray-300'>Yunyt offers comprehensive event management solutions designed for organizations of all sizes, ensuring smooth operations and high-impact engagement across tech events, corporate meets, and educational workshops.</h2>
-              </div>
-            </Card>
-            <Card>
-              <h3 className='border-b p-2 flex items-center gap-1'><MonitorCloud />TechLab</h3>
-              <div className='w-full h-full flex items-center justify-start flex-col p-10 text-balance text-center'>
-                <MonitorCloud size={100}/>
-                <h1 className='text-2xl'>Tech Solutions</h1>
-                <h2 className='text-gray-300'>With a focus on reliability and innovation, Yunyt delivers scalable digital solutions including web development, workflow automation, and advanced AI/ML implementations.</h2>
-              </div>
-            </Card>
-            <Card>
-              <h3 className='border-b p-2 flex items-center gap-1'><PaintBucket />PrintLab</h3>
-              <div className='w-full h-full flex items-center justify-start flex-col p-10 text-balance text-center'>
-                <PaintBucket size={100}/>
-                <h1 className='text-2xl'>Merchandise Printing</h1>
-                <h2 className='text-gray-300'>Our PrintLabs team provides reliable, premium-grade printing services tailored for events and businesses, delivering everything from signage and brochures to branded giveaways.</h2>
-              </div>
-            </Card>
-          </CardSwap>
+        <div className="md:flex-[40%] h-full relative ">
+          <img src="/svg/hero.Cc0GD7y9_dXnqV.svg" alt="" />
         </div>
       </section>
-      <section className='w-full my-10 mx-auto text-center'>
-        <h2 className='font-bold text-5xl'>
+      <section className='w-full my-10 mx-auto'>
+        <h2 className='font-semibold text-5xl text-shadow-xs py-2 px-3 bg-[#b9ff66] inline-block rounded-xl text-black'>
           Our Services
         </h2>
         <div className=' w-full mt-10 flex flex-wrap justify-center gap-7'>
-          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover' >
-            <h3 className='font-extrabold text-2xl'>Hackthone</h3>
-            <p className='text-balance'>Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences.</p>
+          {services.map((service =>(
+            <div className='customCard w-md scaleOnHover' key={service.id}>
+            <h3 className='font-extrabold text-2xl'>{service.title}</h3>
+            <p className='text-balance'>{service.desc}</p>
           </div>
-          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover ' >
-            <h3 className='font-extrabold text-2xl'>Corporate Events</h3>
-            <p className='text-balance'>Professional corporate event planning with seamless logistics, team building activities, and brand integration.</p>
-          </div>
-          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover' >
-            <h3 className='font-extrabold text-2xl'>Workshops</h3>
-            <p className='text-balance'>Interactive workshop organization with expert facilitation, hands-on learning, and participant engagement tools.</p>
-          </div>
-          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover' >
-            <h3 className='font-extrabold text-2xl'>Conferences</h3>
-            <p className='text-balance'>Large-scale conference management with speaker coordination, attendee engagement, and technical support.</p>
-          </div>
-          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover' >
-            <h3 className='font-extrabold text-2xl'>Product Launches</h3>
-            <p className='text-balance'>Memorable product launch events with media coverage, influencer engagement, and brand storytelling.</p>
-          </div>
-          <div className='glassEffect px-5 py-3 w-md rounded-lg scaleOnHover' >
-            <h3 className='font-extrabold text-2xl'>Team Building</h3>
-            <p className='text-balance'>Custom team building experiences designed to strengthen collaboration and boost workplace morale.</p>
-          </div>
+          )))}
         </div>
       </section>
       <section className='my-10'>

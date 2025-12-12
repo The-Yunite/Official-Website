@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import BlurText from '@/components/BlurText'
-import ScrollFloat from '@/components/ScrollFloat'
 
 export default function TechLabPage() {
   return (
@@ -33,17 +32,9 @@ export default function TechLabPage() {
 
       {/* Solutions Section */}
       <section className='w-full min-h-screen pt-16 mx-auto text-center'>
-        <ScrollFloat
-          animationDuration={1}
-          ease='back.inOut(2)'
-          scrollStart='top bottom+=50%'
-          scrollEnd='center bottom-=40%'
-          stagger={0.07}
-          textClassName='font-semibold text-4xl'
-        >
+        <p className ='font-semibold text-4xl'>
           Our Tech Solutions
-        </ScrollFloat>
-
+        </p>
         <div className='mt-10 grid md:grid-cols-2 lg:grid-cols-2 gap-10'>
           {/* Web Development */}
           <div className='glassEffect rounded-xl shadow-lg p-6 text-left'>

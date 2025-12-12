@@ -123,12 +123,18 @@
 
 @layer components {
   .glassEffect {
-    @apply backdrop-blur-md bg-white/10;
+    @apply backdrop-blur-lg bg-white/30;
   }
   .scaleOnHover {
     @apply hover:scale-105 transition-transform duration-100;
   }
   .popOnHover {
     @apply hover:-translate-y-1 transition-transform duration-100;
+  }
+  .primaryFontColor{
+    @apply text-[#732b6c]
+  }
+  .customCard{
+    @apply bg-[#f3f3f3] text-black rounded-4xl p-5 border border-black shadow-[0_4px_0_0_rgb(0,0,0)]
   }
 }
