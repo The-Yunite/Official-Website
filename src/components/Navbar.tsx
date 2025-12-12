@@ -20,7 +20,6 @@ const Navbar = () => {
         { name: "Home", href: "/" },
         { name: "Our Events", href: "/our-events" },
         { name: "TechLAB", href: "/techLAB" },
-        { name: "PrintLAB", href: "/printLAB" },
         { name: "About Us", href: "/aboutUs" },
         { name: "Contact Us", href: "/contact" },
     ]
