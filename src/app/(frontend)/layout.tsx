@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` antialiased relative text-white`}
+        className={` antialiased relative text-secondary`}
       >
         <div className="fixed top-0 -z-10 bg-[linear-gradient(to_bottom,#badfe7_0%,#badfe7_30%,#eab6d1_100%)] h-screen w-screen" /> 
         <Navbar />

@@ -37,7 +37,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <header className={`w-full primaryFontColor flex justify-between items-center fixed z-10 top-0 py-5 px-14 transition-all duration-300 glassEffect ${scrolled ? 'md:glassEffect' : 'md:backdrop-blur-none md:bg-transparent'}`}>
+        <header className={`w-full text-primary flex justify-between items-center fixed z-10 top-0 py-5 px-14 transition-all duration-300 glassEffect ${scrolled ? 'md:glassEffect' : 'md:backdrop-blur-none md:bg-transparent'}`}>
             <div className='flex items-center'>
                 <span><Image
                     src={"/logo.png"}
