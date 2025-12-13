@@ -255,7 +255,7 @@ export default function HomePage() {
       <section className='flex items-center flex-col my-10'>
         <p className='font-bold text-5xl text-black'>Get in Touch</p>
         <p className='text-gray-800 my-5 font-semibold text-xl'>Ready to make your next event unforgettable? Let's discuss your project.</p>
-        <CustomForm showHeading={false} />
+        <CustomForm showHeading={false} clasName={'w-xs md:w-sm'} />
         <div className='mt-5 text-center'>
           <p className='text-gray-800 text-xl'>
             Or reach us directly at:

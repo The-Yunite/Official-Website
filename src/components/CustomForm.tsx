@@ -1,11 +1,13 @@
 "use client"
+import { ArrowUpRight } from 'lucide-react';
 import React, { useState } from 'react'
 
 interface CustomFormProps {
     showHeading: boolean;
+    clasName: String;
 }
 
-const CustomForm = ({showHeading}: CustomFormProps) => {
+const CustomForm = ({showHeading, clasName}: CustomFormProps) => {
 
     const [result, setResult] = useState("");
     const [isSuccess, setIsSuccess] = useState(false)
@@ -44,65 +46,47 @@ const CustomForm = ({showHeading}: CustomFormProps) => {
     };
 
     return (
-        <div className=''>
+        <div className={` text-black font-semibold ${clasName} `}>
             <h2 className={`text-3xl font-bold w-lg pb-8 ${!showHeading && "hidden"}`}>Send us a Message</h2>
-            <form onSubmit={onSubmit} className="space-y-6 w-xs md:w-md">
-                {/* Name */}
-                <div>
-                    <label className="block mb-2 text-sm font-medium">Name</label>
-                    <input
-                        type="text"
-                        name="name"
-                        placeholder="Your Name"
-                        required
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff6b35] transition"
-                    />
-                </div>
-
-                {/* Email */}
-                <div>
-                    <label className="block mb-2 text-sm font-medium">Email</label>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="your@email.com"
-                        required
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff6b35] transition"
-                    />
-                </div>
-
-                {/* Message */}
-                <div>
-                    <label className="block mb-2 text-sm font-medium">Message</label>
-                    <textarea
-                        name="message"
-                        rows={5}
-                        placeholder="Your message..."
-                        required
-                        className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff6b35] transition"
-                    ></textarea>
-                </div>
-
-                {/* Button */}
-                <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full py-3 rounded-xl bg-[#f06d3eeb] hover:bg-[#e65a2d] shadow-lg transition font-medium"
-                >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                </button>
-
-                {/* Result */}
-                {result && (
-                    <p
-                        className={`mt-4 text-center p-3 rounded-xl ${isSuccess
-                            ? "bg-green-600/20 text-green-300 border border-green-500/30"
-                            : "bg-red-600/20 text-red-300 border border-red-500/30"
-                            }`}
-                    >
-                        {result}
-                    </p>
-                )}
+            <form onSubmit={onSubmit} className="flex flex-col gap-6 w-full">
+              <div>
+                <label className="block text-sm font-bold text-black mb-2">Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter your name"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff6b35] bg-white text-black"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-black mb-2">Email</label>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff6b35] bg-white text-black"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-black mb-2">Phone</label>
+                <input
+                  type="tel"
+                  placeholder="Enter your phone number"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff6b35] bg-white text-black"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-bold text-black mb-2">Message</label>
+                <textarea
+                  placeholder="Write your message..."
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#ff6b35] bg-white text-black"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="mt-4 bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-lg py-3 px-8 font-semibold hover:shadow-xl hover:brightness-110 transition inline-flex items-center gap-2 justify-center"
+              >
+                Send Message <ArrowUpRight size={20} />
+              </button>
             </form>
         </div>
     )
