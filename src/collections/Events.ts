@@ -7,30 +7,62 @@ export const Event: CollectionConfig = {
   },
   fields: [
     {
-      name: 'Title',
+      name: 'title',
       type: 'text',
       required: true,
     },
     {
-        name: 'Date',
-        type: 'date',
-        required: true,
+      name: 'status',
+      type: 'text',
+      required: true,
     },
     {
-        name: 'Location',
-        type: 'text',
-        required: true,
+      name: 'participantsCount',
+      type: 'number',
+      required: false,
     },
     {
-        name: 'Description',
-        type: 'textarea',
-        required: false,
+      name: 'date',
+      type: 'date',
+      required: true,
     },
     {
-        name: 'Image',
-        type: 'upload',
-        relationTo: 'media',
-        required: false,
+      name: 'location',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'type',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'action',
+      type: 'group',
+      required: true,
+      fields: [
+        {
+          name: "href",
+          type: "text",
+          required: true
+        },
+        {
+          name: "label",
+          type: "text",
+          required: true
+        }
+      ]
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+      required: false,
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      required: false,
     }
   ],
 }

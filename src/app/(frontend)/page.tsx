@@ -176,8 +176,8 @@ export default function HomePage() {
           {events.map((event) => (
             <div key={event.id} className="duration-500 w-xs bg-white/70 relative group border border-black/10 rounded-3xl backdrop-blur-sm overflow-hidden shadow-lg hover:shadow-[#ff6b35]/40 transition transform hover:-translate-y-3 hover:scale-105">
               <div className='w-full flex justify-between items-center p-4 absolute top-0 z-10'>
-                <span className='rounded-full px-3 bg-black/10 font-semibold text-black'>{event.status}</span>
-                <span className='rounded-full px-3 bg-black/10 font-semibold text-black'>{event.participantsCount}</span>
+                <span className='rounded-full px-3 bg-black/60 font-semibold text-secondary'>{event.status}</span>
+                <span className='rounded-full px-3 bg-black/60 font-semibold text-secondary'>{event.participantsCount}</span>
               </div>
               <div className='relative top-0 w-full aspect-video rounded-3xl overflow-hidden'>
                 <Image
@@ -224,32 +224,6 @@ export default function HomePage() {
             <Bot size={70} className='mx-auto text-black' />
             <p className='text-xl font-semibold text-black'>AI ML</p>
             <p>Integrate AI to make your business smarter, faster, and up-to-date.</p>
-          </SpotlightCard>
-        </div>
-        <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
-          <Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link>
-        </button>
-      </section>
-      <section className='my-10'>
-        <div className='max-w-3xl'>
-          <p className='font-bold text-5xl text-black'>PrintLab</p>
-          <p className='text-gray-800 my-5 font-semibold text-xl'>Premium printing solutions to elevate your brand and make lasting impressions</p>
-        </div>
-        <div className='my-10 flex flex-wrap justify-center gap-10 md:gap-16 text-center text-gray-800'>
-          <SpotlightCard className="custom-spotlight-card scaleOnHover mx-auto text-center w-xs border border-black/10 bg-white/60 shadow-lg hover:shadow-[#ff6b35]/40" spotlightColor="rgba(255, 107, 53, 0.15)">
-            <Shirt size={70} className='mx-auto text-black' />
-            <p className='text-xl font-semibold text-black'>Custom T-Shirts</p>
-            <p>High-quality screen printing and embroidery on premium fabrics</p>
-          </SpotlightCard>
-          <SpotlightCard className="custom-spotlight-card scaleOnHover w-xs border border-black/10 bg-white/60 shadow-lg hover:shadow-[#ff6b35]/40" spotlightColor="rgba(255, 107, 53, 0.15)">
-            <Coffee size={70} className='mx-auto text-black' />
-            <p className='text-xl font-semibold text-black'>Branded Cups</p>
-            <p>Eco-friendly cups with vibrant custom designs for any event</p>
-          </SpotlightCard>
-          <SpotlightCard className="custom-spotlight-card scaleOnHover w-xs border border-black/10 bg-white/60 shadow-lg hover:shadow-[#ff6b35]/40" spotlightColor="rgba(255, 107, 53, 0.15)">
-            <SquareUser size={70} className='mx-auto text-black' />
-            <p className='text-xl font-semibold text-black'>Name Badges</p>
-            <p>Professional badge printing with lanyards and holders</p>
           </SpotlightCard>
         </div>
         <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
