@@ -1,9 +1,7 @@
 "use client"
 import React from 'react'
 import BlurText from '@/components/BlurText'
-import ScrollFloat from '@/components/ScrollFloat'
 import Image from 'next/image'
-import FadeContent from '@/components/FadeContent'
 
 export default function TeamsPage() {
   return (
@@ -31,12 +29,12 @@ export default function TeamsPage() {
           rootMargin='1px'
           className="w-full md:w-3/4 text-gray-300 font-semibold text-xl justify-center"
         />
-        <FadeContent delay={1} blur={true} duration={1000} ease="ease-out" initialOpacity={0} className=''>
+        <div>
           <div className='glassEffect rounded-lg shadow-lg p-6 mt-10 text-center w-3/4 mx-auto'>
             <p className='font-bold'>Our Mission</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis tenetur nesciunt a fuga odit repellendus mollitia officiis eveniet rerum? Ipsam nulla laudantium enim quod adipisci repudiandae iste, illo quaerat in quidem dolores.</p>
           </div>
-        </FadeContent>
+        </div>
       </section>
 
       {/* Team Cards Section */}

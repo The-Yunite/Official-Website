@@ -10,7 +10,6 @@ import { ArrowUpRight, Bot, Calendar, Coffee, Globe, MapPin, Shirt, SquareUser, 
 import SpotlightCard from '@/components/SpotlightCard'
 import CustomForm from '@/components/CustomForm'
 import Image from 'next/image'
-import { title } from 'process'
 
 export default function HomePage() {
 
@@ -70,34 +69,34 @@ export default function HomePage() {
 
   const services = [
     {
-      id : "1234",
-      title : "Hackthon",
-      desc : "Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences."
+      id: "1234",
+      title: "Hackthon",
+      desc: "Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences."
     },
     {
-      id : "1235",
-      title : "Corporate Events",
-      desc : "Professional corporate event planning with seamless logistics, team building activities, and brand integration."
+      id: "1235",
+      title: "Corporate Events",
+      desc: "Professional corporate event planning with seamless logistics, team building activities, and brand integration."
     },
     {
-      id : "1236",
-      title : "Workshops",
-      desc : "Interactive workshop organization with expert facilitation, hands-on learning, and participant engagement tools."
+      id: "1236",
+      title: "Workshops",
+      desc: "Interactive workshop organization with expert facilitation, hands-on learning, and participant engagement tools."
     },
     {
-      id : "1237",
-      title : "Conferences",
-      desc : "Large-scale conference management with speaker coordination, attendee engagement, and technical support."
+      id: "1237",
+      title: "Conferences",
+      desc: "Large-scale conference management with speaker coordination, attendee engagement, and technical support."
     },
     {
-      id : "1238",
-      title : "Product Launches",
-      desc : "Memorable product launch events with media coverage, influencer engagement, and brand storytelling."
+      id: "1238",
+      title: "Product Launches",
+      desc: "Memorable product launch events with media coverage, influencer engagement, and brand storytelling."
     },
     {
-      id : "1239",
-      title : "Team Building",
-      desc : "Custom team building experiences designed to strengthen collaboration and boost workplace morale."
+      id: "1239",
+      title: "Team Building",
+      desc: "Custom team building experiences designed to strengthen collaboration and boost workplace morale."
     },
   ]
 
@@ -111,7 +110,7 @@ export default function HomePage() {
   return (
     <main className='mt-24 px-8 md:px-10 flex flex-col items-center min-h-screen overflow-hidden'>
       <section id='hero' className='w-full flex flex-col md:flex-row justify-center'>
-        <div className='flex flex-col justify-center md:flex-[60%]'>
+        <div className='flex flex-col justify-center md:w-[60%]'>
           <BlurText
             text="Accelerate Your Brand’s Growth with Yunyt."
             delay={100}
@@ -135,7 +134,7 @@ export default function HomePage() {
             className="w-full md:w-3/4 mt-2 md:mt-5 text-shadow-xs text-xl text-gray-800"
           />
           <div className='mt-5 md:mt-10 font-semibold flex gap-5'>
-            <button className='bg-gradient-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-lg py-3 px-6 scaleOnHover transition hover:shadow-xl hover:brightness-110'>
+            <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-lg py-3 px-6 scaleOnHover transition hover:shadow-xl hover:brightness-110'>
               <Link href="/">Learn More</Link>
             </button>
             <button className='border border-black text-black rounded-full py-3 px-6 scaleOnHover hover:bg-black/10 transition hover:shadow-lg'>
@@ -143,8 +142,13 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-        <div className="md:flex-[40%] h-full relative ">
-          <img src="/svg/hero.Cc0GD7y9_dXnqV.svg" alt="" />
+        <div className="md:w-[40%] h-full relative ">
+          <Image
+            src={"/logo.png"}
+            fill
+            alt='Yunyt'
+            className='object-cover'
+          />
         </div>
       </section>
       <section className='w-full my-10 mx-auto'>
@@ -152,7 +156,7 @@ export default function HomePage() {
           Our Services
         </h2>
         <div className=' w-full mt-10 flex flex-wrap justify-center gap-7'>
-          {services.map((service =>(
+          {services.map((service => (
             <div
               className='customCard w-md scaleOnHover rounded-2xl p-6 shadow-lg hover:shadow-[#ff6b35]/40 transition-transform hover:-translate-y-2 border border-black/10 bg-white/60'
               key={service.id}
@@ -196,7 +200,7 @@ export default function HomePage() {
             </div>
           ))}
         </div>
-        <button className='bg-gradient-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
+        <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
           <Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link>
         </button>
       </section>
@@ -222,7 +226,7 @@ export default function HomePage() {
             <p>Integrate AI to make your business smarter, faster, and up-to-date.</p>
           </SpotlightCard>
         </div>
-        <button className='bg-gradient-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
+        <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
           <Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link>
         </button>
       </section>
@@ -248,7 +252,7 @@ export default function HomePage() {
             <p>Professional badge printing with lanyards and holders</p>
           </SpotlightCard>
         </div>
-        <button className='bg-gradient-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
+        <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
           <Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link>
         </button>
       </section>
@@ -289,7 +293,7 @@ export default function HomePage() {
       </section>
       <section className='my-10 flex flex-col items-center gap-5'>
         <p className='font-bold text-5xl text-black'>Join Our Team</p>
-        <button className='bg-gradient-to-r from-[#ff6b35] to-[#b9ff66] text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6 scaleOnHover font-semibold hover:shadow-xl hover:brightness-110'>
+        <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6 scaleOnHover font-semibold hover:shadow-xl hover:brightness-110'>
           <Link href="/" className='flex items-center gap-1'>Join Now<ArrowUpRight className='inline-block' /></Link>
         </button>
       </section>

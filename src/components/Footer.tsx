@@ -7,7 +7,7 @@ import React from 'react'
 
 const Footer = () => {
     return (
-        <footer className='w-full bg-white/10 backdrop-blur-md text-gray-200 rounded-t-lg'>
+        <footer className='w-full bg-white/10 backdrop-blur-md primaryFontColor rounded-t-lg'>
             <div className='w-full flex px-10 py-5 items-start justify-between flex-col md:flex-row gap-7'>
                 <div className='max-w-xs flex-1/4'>
                     <Image

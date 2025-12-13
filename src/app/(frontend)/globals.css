@@ -1,6 +1,24 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: 'Amarna';
+  src: url('/fonts/Amarna-VariableFont_wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amarna';
+  src: url('/fonts/Amarna-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+body {
+  font-family: 'Amarna', sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -116,6 +134,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -125,16 +144,20 @@
   .glassEffect {
     @apply backdrop-blur-lg bg-white/30;
   }
+
   .scaleOnHover {
     @apply hover:scale-105 transition-transform duration-100;
   }
+
   .popOnHover {
     @apply hover:-translate-y-1 transition-transform duration-100;
   }
-  .primaryFontColor{
+
+  .primaryFontColor {
     @apply text-[#732b6c]
   }
-  .customCard{
-    @apply bg-[#f3f3f3] text-black rounded-4xl p-5 border border-black shadow-[0_4px_0_0_rgb(0,0,0)]
-  }
+
+  /* .customCard {
+    @apply bg-[#f3f3f3] text-black rounded-4xl p-5 border border-black shadow-[0_4px_0_0_rgb(0, 0, 0)]
+  } */
 }
