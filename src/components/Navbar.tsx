@@ -1,16 +1,7 @@
 "use client"
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { Cross, Menu, X } from 'lucide-react'
-import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerFooter,
-    DrawerTitle,
-    DrawerTrigger,
-} from "@/components/ui/drawer"
-import { Button } from './ui/button'
+import { Menu, X } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 

@@ -129,9 +129,9 @@ export default function HomePage() {
   ]
 
   return (
-    <main className="mt-24 px-8 md:px-10 flex flex-col items-center min-h-screen overflow-hidden">
+    <main className=" flex flex-col items-center min-h-screen overflow-hidden">
       {/* Hero Section - UNCHANGED */}
-      <section id="hero" className="w-full flex flex-col md:flex-row justify-center">
+      <section id="hero" className="w-full flex flex-col md:flex-row pt-24 px-8 md:px-10 md:min-h-screen justify-center">
         <div className="flex flex-col justify-center md:w-[60%]">
           <BlurText
             text="Accelerate Your Brand’s Growth with Yunyt."
@@ -251,7 +251,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto flex justify-center mt-10">
           <Link
             href="/our-events"
-            className="bg-gradient-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 flex items-center gap-1 transition hover:shadow-xl hover:brightness-110"
+            className="bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 flex items-center gap-1 transition hover:shadow-xl hover:brightness-110"
           >
             View More <ArrowUpRight className="inline-block" />
           </Link>
@@ -297,7 +297,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto flex justify-center">
           <Link
             href="/techLAB"
-            className="bg-gradient-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 flex items-center gap-1 transition hover:shadow-xl hover:brightness-110"
+            className="bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 flex items-center gap-1 transition hover:shadow-xl hover:brightness-110"
           >
             View More <ArrowUpRight className="inline-block" />
           </Link>
@@ -309,7 +309,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-2 sm:px-6">
           {/* Left: Text Content */}
           <div className="space-y-6">
-            <h2 className="text-6xl font-extrabold bg-gradient-to-r from-gray-700 via-gray-500 to-gray-400 bg-clip-text text-transparent transition hover:brightness-110 hover:drop-shadow-md">
+            <h2 className="text-6xl font-extrabold bg-linear-to-r from-gray-700 via-gray-500 to-gray-400 bg-clip-text text-transparent transition hover:brightness-110 hover:drop-shadow-md">
               About Yunyt
             </h2>
             <p className="text-xl text-gray-700 leading-relaxed">
@@ -342,7 +342,7 @@ export default function HomePage() {
           {/* Right: Meaningful Quote + Stats */}
           <div className="relative flex flex-col items-center gap-8">
             {/* Quote block */}
-            <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-xl border border-black/10 bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 flex items-center justify-center transition hover:scale-105 hover:shadow-gray-400/50">
+            <div className="relative w-full h-80 rounded-3xl overflow-hidden shadow-xl border border-black/10 bg-linear-to-br from-gray-100 via-gray-200 to-gray-300 flex items-center justify-center transition hover:scale-105 hover:shadow-gray-400/50">
               <p className="text-2xl md:text-3xl font-semibold text-gray-700 text-center px-6">
                 “Crafting experiences that inspire, connect, and leave lasting memories.”
               </p>
@@ -350,15 +350,15 @@ export default function HomePage() {
 
             {/* Stats */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
-              <SpotlightCard className="rounded-2xl bg-gradient-to-r from-gray-200 to-gray-300 text-center shadow-lg p-6 border border-black/10 transition hover:scale-105 hover:shadow-gray-400/50">
+              <SpotlightCard className="rounded-2xl bg-linear-to-r from-gray-200 to-gray-300 text-center shadow-lg p-6 border border-black/10 transition hover:scale-105 hover:shadow-gray-400/50">
                 <b className="text-5xl text-black">10</b>
                 <p className="text-gray-700">Events Managed</p>
               </SpotlightCard>
-              <SpotlightCard className="rounded-2xl bg-gradient-to-r from-gray-100 to-gray-200 text-center shadow-lg p-6 border border-black/10 transition hover:scale-105 hover:shadow-gray-400/50">
+              <SpotlightCard className="rounded-2xl bg-linear-to-r from-gray-100 to-gray-200 text-center shadow-lg p-6 border border-black/10 transition hover:scale-105 hover:shadow-gray-400/50">
                 <b className="text-5xl text-black">500+</b>
                 <p className="text-gray-700">Happy Attendees</p>
               </SpotlightCard>
-              <SpotlightCard className="rounded-2xl bg-gradient-to-r from-gray-300 to-gray-400 text-center shadow-lg p-6 border border-black/10 transition hover:scale-105 hover:shadow-gray-400/50">
+              <SpotlightCard className="rounded-2xl bg-linear-to-r from-gray-300 to-gray-400 text-center shadow-lg p-6 border border-black/10 transition hover:scale-105 hover:shadow-gray-400/50">
                 <b className="text-5xl text-black">98%</b>
                 <p className="text-gray-700">Client Satisfaction</p>
               </SpotlightCard>
@@ -391,7 +391,7 @@ export default function HomePage() {
           <h2 className="font-bold text-5xl text-black">Join Our Team</h2>
           <Link
             href="/joinUs"
-            className="bg-gradient-to-r from-[#ff6b35] to-[#b9ff66] text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6 font-semibold flex items-center gap-1 transition hover:shadow-xl hover:brightness-110"
+            className="bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6 font-semibold flex items-center gap-1 transition hover:shadow-xl hover:brightness-110"
           >
             Join Now <ArrowUpRight className="inline-block" />
           </Link>
