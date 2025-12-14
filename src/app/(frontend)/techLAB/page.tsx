@@ -149,7 +149,7 @@ export default function TechLabPage() {
           className="text-3xl md:text-5xl font-extrabold tracking-tight text-shadow-lg text-black"
         />
         <Link
-          href="/"
+          href="/contact"
           className="mt-10 bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-lg py-4 px-10 font-semibold hover:shadow-xl hover:brightness-110 transition inline-flex items-center gap-2"
         >
           Contact Us <ArrowUpRight size={22} />

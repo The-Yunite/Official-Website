@@ -27,7 +27,7 @@ export default function JoinYunytPage() {
   ]
 
   return (
-    <main className="px-10 flex flex-col items-center min-h-screen overflow-hidden pb-40 bg-[linear-gradient(to_bottom,#badfe7_0%,#badfe7_30%,#eab6d1_100%)]">
+    <main className="px-10 flex flex-col items-center">
       
       {/* Hero Section - Centered with safe spacing */}
       <section className="w-full min-h-[60vh] flex flex-col justify-center items-center text-center pt-24">
