@@ -6,7 +6,7 @@ import config from '@/payload.config'
 import React from 'react'
 import BlurText from '@/components/BlurText'
 import Link from 'next/link'
-import { ArrowUpRight, Bot, Calendar, Coffee, Globe, MapPin, Shirt, SquareUser, Workflow } from 'lucide-react'
+import { ArrowUpRight, Bot, Building2, Calendar, CodeXml, Globe, GraduationCap, icons, MapPin, Mic, Shield, Workflow } from 'lucide-react'
 import SpotlightCard from '@/components/SpotlightCard'
 import CustomForm from '@/components/CustomForm'
 import Image from 'next/image'
@@ -79,36 +79,56 @@ export default function HomePage() {
     },
   ]
 
-  const services = [
+  const eventServices = [
     {
       id: "1234",
+      icon: <CodeXml color='black' size={40} />,
       title: "Hackthon",
       desc: "Full-service hackathon management from registration to prizes, ensuring smooth execution and memorable experiences."
     },
     {
       id: "1235",
       title: "Corporate Events",
+      icon: <Building2 color='black' size={40} />,
       desc: "Professional corporate event planning with seamless logistics, team building activities, and brand integration."
     },
     {
       id: "1236",
+      icon: <GraduationCap color='black' size={40} />,
       title: "Workshops",
       desc: "Interactive workshop organization with expert facilitation, hands-on learning, and participant engagement tools."
     },
     {
       id: "1237",
+      icon: <Mic color='black' size={40} />,
       title: "Conferences",
       desc: "Large-scale conference management with speaker coordination, attendee engagement, and technical support."
     },
+  ]
+  const techServices = [
     {
-      id: "1238",
-      title: "Product Launches",
-      desc: "Memorable product launch events with media coverage, influencer engagement, and brand storytelling."
+      id: "1234",
+      icon: <Globe color='black' size={40} />,
+      title: "Web Development",
+      desc: "Modern, responsive, and scalable web applications built with the latest frameworks and technologies."
     },
     {
-      id: "1239",
-      title: "Team Building",
-      desc: "Custom team building experiences designed to strengthen collaboration and boost workplace morale."
+      id: "1235",
+      title: "AI ML Integration",
+      icon: <Bot color='black' size={40} />,
+      desc: "Intelligent solutions powered by data — predictive analytics, recommendation systems, and automation."
+    },
+    {
+      id: "1236",
+      icon: <Workflow color='black' size={40} />,
+      title: "Automations",
+      desc: "We automate your repetitive tasks so you can focus on what truly matters."
+    },
+    {
+      id: "1237",
+      icon: <Shield color='black' size={40} />,
+      title: "Cybersecurity",
+      desc: "End-to-end protection with advanced threat detection, compliance, and secure infrastructure design."
     },
   ]
 
@@ -157,23 +177,46 @@ export default function HomePage() {
         </div>
       </section>
       <section className='w-full my-10 mx-auto'>
-        <h2 className='font-semibold text-5xl text-shadow-xs py-2 px-3 bg-[#b9ff66] inline-block rounded-xl text-black'>
+        <h2 className='font-semibold text-center text-5xl text-shadow-xs py-2 px-3 bg-[#b9ff66] inline-block rounded-xl text-black'>
           Our Services
         </h2>
-        <div className=' w-full mt-10 flex flex-wrap justify-center gap-7'>
-          {services.map((service => (
+        <h2 className='text-xl text-shadow-xs py-2 px-3 rounded-xl text-black text-center underline underline-offset-4'>
+          Managemnt Services
+        </h2>
+        <div className=' w-full mt-5 mb-10 flex flex-wrap justify-center gap-7'>
+          {eventServices.map((service => (
             <div
               className='customCard w-md scaleOnHover rounded-2xl p-6 shadow-lg hover:shadow-[#ff6b35]/40 transition-transform hover:-translate-y-2 border border-black/10 bg-white/60'
               key={service.id}
             >
-              <h3 className='font-extrabold text-2xl text-black'>{service.title}</h3>
+              <div className='flex w-full items-center justify-between my-3'>
+                <h3 className='font-extrabold text-2xl text-black'>{service.title}</h3>
+                {service.icon}
+              </div>
+              <p className='text-gray-800'>{service.desc}</p>
+            </div>
+          )))}
+        </div>
+        <h2 className='text-xl text-shadow-xs pt-2 px-3 rounded-xl text-black text-center underline underline-offset-4'>
+          Tech Services
+        </h2>
+        <div className=' w-full mt-5 mb-10 flex flex-wrap justify-center gap-7'>
+          {techServices.map((service => (
+            <div
+              className='customCard w-md scaleOnHover rounded-2xl p-6 shadow-lg hover:shadow-[#ff6b35]/40 transition-transform hover:-translate-y-2 border border-black/10 bg-white/60'
+              key={service.id}
+            >
+              <div className='flex w-full items-center justify-between my-3'>
+                <h3 className='font-extrabold text-2xl text-black'>{service.title}</h3>
+                {service.icon}
+              </div>
               <p className='text-gray-800'>{service.desc}</p>
             </div>
           )))}
         </div>
       </section>
       <section className='my-10'>
-        <div className='max-w-3xl'>
+        <div className='max-w-3xl text-center'>
           <p className='font-bold text-5xl text-black'>Our Events</p>
           <p className='text-gray-800 my-5 font-semibold text-xl'>Discover our portfolio of memorable events and upcoming opportunities</p>
         </div>
@@ -206,11 +249,11 @@ export default function HomePage() {
           ))}
         </div>
         <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
-          <Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link>
+          <Link href="/our-events" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link>
         </button>
       </section>
-      <section className='my-10'>
-        <div className='max-w-3xl'>
+      <section className='my-10 text-center'>
+        <div className='max-w-3xl text-center'>
           <p className='font-bold text-5xl text-black'>TechLab</p>
           <p className='text-gray-800 my-5 font-semibold text-xl'>Empowering Businesses With Reliable Web, Automation, and AI Services</p>
         </div>
@@ -232,7 +275,7 @@ export default function HomePage() {
           </SpotlightCard>
         </div>
         <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 scaleOnHover mx-auto'>
-          <Link href="/" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link>
+          <Link href="/techLAB" className='flex items-center gap-1'>View More<ArrowUpRight className='inline-block' /></Link>
         </button>
       </section>
       <section className='w-full my-10 mx-auto text-center'>
@@ -273,7 +316,7 @@ export default function HomePage() {
       <section className='my-10 flex flex-col items-center gap-5'>
         <p className='font-bold text-5xl text-black'>Join Our Team</p>
         <button className='bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black backdrop-blur-md rounded-full shadow-lg py-3 px-6 scaleOnHover font-semibold hover:shadow-xl hover:brightness-110'>
-          <Link href="/" className='flex items-center gap-1'>Join Now<ArrowUpRight className='inline-block' /></Link>
+          <Link href="/joinUs" className='flex items-center gap-1'>Join Now<ArrowUpRight className='inline-block' /></Link>
         </button>
       </section>
     </main>

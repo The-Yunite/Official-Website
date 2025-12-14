@@ -141,7 +141,7 @@ export default function EventsPage() {
           className="text-3xl md:text-5xl font-extrabold tracking-tight text-shadow-lg"
         />
         <button className="mt-10 bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-lg py-4 px-8 font-semibold hover:shadow-xl hover:brightness-110 transition">
-          <Link href="/" className="flex items-center gap-1">Contact Us Today <ArrowUpRight size={20} /></Link>
+          <Link href="/contact" className="flex items-center gap-1">Contact Us Today <ArrowUpRight size={20} /></Link>
         </button>
       </section>
     </main>

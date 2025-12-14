@@ -63,7 +63,6 @@ const Navbar = () => {
                         <ul className='w-full flex flex-col items-center py-2 gap-1.5'>
                             <li className=''><Link href="/">Home</Link></li>
                             <li className=''><Link href="/our-events">Our Events</Link></li>
-                            <li className=''><Link href="/printLAB">PrintLAB</Link></li>
                             <li className=''><Link href="/techLAB">TechLAB</Link></li>
                             <li className=''><Link href="/aboutUs">About Us</Link></li>
                             <li className=''><Link href="/contact">Contact Us</Link></li>
