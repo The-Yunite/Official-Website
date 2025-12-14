@@ -1,8 +1,8 @@
 "use client"
 // import { headers as getHeaders } from 'next/headers.js'
-// import { getPayload } from 'payload'
+import { getPayload } from 'payload'
 // import { fileURLToPath } from 'url'
-// import config from '@/payload.config'
+import config from '@/payload.config'
 import React from 'react'
 import BlurText from '@/components/BlurText'
 import Link from 'next/link'
@@ -12,6 +12,18 @@ import CustomForm from '@/components/CustomForm'
 import Image from 'next/image'
 
 export default function HomePage() {
+
+  // const headers = await getHeaders()
+  // const payloadConfig = await config
+  const payload = await getPayload({ config })
+  // const { user } = await payload.auth({ headers })
+
+  // const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
+
+  const event = await payload.find({
+    collection:'events',
+
+  })
 
   const events = [
     {
@@ -99,13 +111,6 @@ export default function HomePage() {
       desc: "Custom team building experiences designed to strengthen collaboration and boost workplace morale."
     },
   ]
-
-  // const headers = await getHeaders()
-  // const payloadConfig = await config
-  // const payload = await getPayload({ config: payloadConfig })
-  // const { user } = await payload.auth({ headers })
-
-  // const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
   return (
     <main className='mt-24 px-8 md:px-10 flex flex-col items-center min-h-screen overflow-hidden'>

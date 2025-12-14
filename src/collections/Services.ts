@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-export const Service: CollectionConfig = {
+export const Services: CollectionConfig = {
   slug: 'services',
   access: {
     read: () => true,

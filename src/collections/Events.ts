@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-export const Event: CollectionConfig = {
+export const Events: CollectionConfig = {
   slug: 'events',
   access: {
     read: () => true,
@@ -39,17 +39,14 @@ export const Event: CollectionConfig = {
     {
       name: 'action',
       type: 'group',
-      required: true,
       fields: [
         {
           name: "href",
           type: "text",
-          required: true
         },
         {
           name: "label",
           type: "text",
-          required: true
         }
       ]
     },
@@ -59,10 +56,19 @@ export const Event: CollectionConfig = {
       required: false,
     },
     {
-      name: 'image',
-      type: 'upload',
-      relationTo: 'media',
-      required: false,
+      name: "image",
+      type: 'group',
+      fields: [
+        {
+          name: 'Local',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'cloudinaryUrl',
+          type: 'text',
+        }
+      ]
     }
   ],
 }
