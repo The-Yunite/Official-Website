@@ -13,23 +13,23 @@ export default function TeamsPage() {
       role: "Co-founder",
       image: "/shadab.jpg",
       bio: "Focused on building scalable solutions and driving innovation through code.",
-      handle: "@javicodes",
+      handle: "@shadabkhan",
     },
     {
       id: 2,
       name: "Mohd Atif Khan",
       role: "Co-founder",
-      image: "/shadab.jpg",
+      image: "/atif.jpg",
       bio: "Passionate about design, storytelling, and creating memorable brand experiences.",
-      handle: "@janedoe",
+      handle: "@atifkhan",
     },
     {
       id: 3,
       name: "Wajid Ali",
       role: "Technical executive",
-      image: "/shadab.jpg",
+      image: "/wajid.jpg",
       bio: "Ensures flawless execution and seamless collaboration across all projects.",
-      handle: "@johnsmith",
+      handle: "@wajidali",
     },
   ]
 
