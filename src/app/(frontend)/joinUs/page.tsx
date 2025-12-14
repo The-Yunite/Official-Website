@@ -134,26 +134,6 @@ export default function JoinYunytPage() {
           </form>
         </div>
       </section>
-
-      {/* CTA */}
-      <section className="w-full min-h-32 flex flex-col justify-center items-center mt-24 text-center">
-        <BlurText
-          text="Ready to build the future with Yunyt?"
-          delay={100}
-          animateBy="words"
-          direction="bottom"
-          stepDuration={0.45}
-          threshold={1}
-          rootMargin="1px"
-          className="text-3xl md:text-5xl font-extrabold tracking-tight text-shadow-lg text-black"
-        />
-        <Link
-          href="/apply"
-          className="mt-10 bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-lg py-4 px-10 font-semibold hover:shadow-xl hover:brightness-110 transition inline-flex items-center gap-2"
-        >
-          Join Us Today <ArrowUpRight size={22} />
-        </Link>
-      </section>
     </main>
   )
 }

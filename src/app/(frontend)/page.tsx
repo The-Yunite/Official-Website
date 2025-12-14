@@ -20,6 +20,7 @@ import {
   Workflow,
   CheckCircle2,
 } from 'lucide-react'
+import CustomEventCard from '@/components/CustomEventCard'
 
 export default function HomePage() {
   const events = [
@@ -31,6 +32,7 @@ export default function HomePage() {
         src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
         alt: 'Brainhack Ideathon',
       },
+      description :"",
       title: 'Brainhack Ideathon',
       date: 'November 17, 2025',
       location: 'Jamia Hamdard, New Delhi, India',
@@ -39,12 +41,13 @@ export default function HomePage() {
     },
     {
       id: '12346',
-      status: 'Past',
+      status: 'Upcoming',
       participantsCount: '200 Participants',
       image: {
         src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
         alt: 'Brainhack Ideathon',
       },
+      description :"",
       title: 'Brainhack Ideathon',
       date: 'November 17, 2025',
       location: 'Jamia Hamdard, New Delhi, India',
@@ -59,6 +62,7 @@ export default function HomePage() {
         src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
         alt: 'Brainhack Ideathon',
       },
+      description :"",
       title: 'Brainhack Ideathon',
       date: 'November 17, 2025',
       location: 'Jamia Hamdard, New Delhi, India',
@@ -215,36 +219,7 @@ export default function HomePage() {
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
           {events.map((event) => (
-            <div
-              key={event.id}
-              className="rounded-3xl bg-white/70 backdrop-blur-md border border-black/10 shadow-lg transition hover:shadow-[#ff6b35]/40 hover:-translate-y-3 hover:scale-105 overflow-hidden"
-            >
-              <div className="relative aspect-video">
-                <Image src={event.image.src} fill alt={event.image.alt} className="object-cover" />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="bg-black/60 text-white px-3 py-1 rounded-full text-sm">{event.status}</span>
-                  <span className="bg-black/60 text-white px-3 py-1 rounded-full text-sm">{event.participantsCount}</span>
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-black">{event.title}</h3>
-                <p className="flex items-center gap-2 text-gray-700 mt-1">
-                  <Calendar size={18} />
-                  {event.date}
-                </p>
-                <p className="flex items-center gap-2 text-gray-700 mt-1">
-                  <MapPin size={18} />
-                  {event.location}
-                </p>
-                <p className="text-gray-600 mt-2">{event.type}</p>
-                <Link
-                  href={event.actions.href}
-                  className="mt-4 block w-full text-center rounded-full border border-[#ff6b35] py-2 font-semibold text-black transition hover:bg-[#ff6b35]/15 hover:scale-[1.02]"
-                >
-                  {event.actions.label}
-                </Link>
-              </div>
-            </div>
+            <CustomEventCard key={event.id}  event={event}/>
           ))}
         </div>
 

@@ -3,33 +3,56 @@ import React from 'react'
 import BlurText from '@/components/BlurText'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Calendar, MapPin, ArrowUpRight } from 'lucide-react'
+import { Calendar, ArrowUpRight, MapPinned } from 'lucide-react'
+import CustomEventCard from '@/components/CustomEventCard'
 
 export default function EventsPage() {
   const upcomingEvents = [
     {
       id: "up1",
       title: "Python X Github Series",
-      desc: "Intensive Series covering Python and github from Basic to Advance level.",
+      status: 'Upcoming',
+      description: "Intensive Series covering Python and github from Basic to Advance level.",
       date: "To be announced",
       location: "New Delhi",
-      image: "/shadab.jpg",
+      participantsCount: '200 Participants',
+      image: {
+        src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
+        alt: 'Brainhack Ideathon',
+      },
+      type: 'Ideathon',
+      actions: { href: '/', label: 'Learn More' },
     },
     {
       id: "up2",
       title: "Education Enclave",
+      status: 'Upcoming',
       desc: "lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      date: "February 20–22, 2026",
+      description: "February 22, 2026",
+      date: "17 november 2025",
       location: "American centre sector 43 Gurgaon",
-      image: "/shadab.jpg",
+      participantsCount: '200 Participants',
+      image: {
+        src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
+        alt: 'Brainhack Ideathon',
+      },
+      type: 'Ideathon',
+      actions: { href: '/', label: 'Learn More' },
     },
     {
       id: "up3",
       title: "Bootcamp AI X ML",
-      desc: "Thorough hands-on bootcamp on AI and ML technologies and applications.",
+      status: 'Upcoming',
+      description: "Thorough hands-on bootcamp on AI and ML technologies and applications.",
       date: "March 20, 2026",
       location: "to be announced",
-      image: "/shadab.jpg",
+      participantsCount: '200 Participants',
+      image: {
+        src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
+        alt: 'Brainhack Ideathon',
+      },
+      type: 'Ideathon',
+      actions: { href: '/', label: 'Learn More' },
     },
   ]
 
@@ -37,28 +60,62 @@ export default function EventsPage() {
     {
       id: "past1",
       title: "BrainHack Ideaathon 2025",
-      desc: "An exciting showcase where startups pitched groundbreaking ideas to investors and mentors.",
+      status: "Past",
+      participantsCount: "150+",
+      image: {
+        src: "/shadab.jpg",
+        alt: "BrainHack Ideaathon 2025 event",
+      },
       date: "17 November 2025",
+      description:
+        "An exciting showcase where startups pitched groundbreaking ideas to investors and mentors.",
       location: "Convention Center, Jamia Hamdard University",
-      image: "/shadab.jpg",
+      type: "Ideaathon",
+      actions: {
+        href: "/events/brainhack-ideaathon-2025",
+        label: "View Details",
+      },
     },
-     {
+    {
       id: "past2",
       title: "Hands-on AI x AR Workshop",
-      desc: "Learn about Augemented Reality and build AR filters yourself.",
+      status: "Past",
+      participantsCount: "80+",
+      image: {
+        src: "/shadab.jpg",
+        alt: "Hands-on AI x AR Workshop",
+      },
       date: "28 October 2025",
+      description:
+        "Learn about Augmented Reality and build AR filters yourself.",
       location: "HAH Lab, Jamia Hamdard University",
-      image: "/shadab.jpg",
+      type: "Workshop",
+      actions: {
+        href: "/events/ai-ar-workshop",
+        label: "View Details",
+      },
     },
     {
       id: "past3",
       title: "ICIDSSD 2024",
-      desc: "An exciting showcase where startups pitched groundbreaking ideas to investors and mentors.",
-      date: "November 15–17, 2024",
+      status: "Past",
+      participantsCount: "300+",
+      image: {
+        src: "/shadab.jpg",
+        alt: "ICIDSSD 2024 conference",
+      },
+      date: "17 November 2024",
+      description:
+        "An exciting showcase where startups pitched groundbreaking ideas to investors and mentors.",
       location: "Convention Center, Jamia Hamdard University",
-      image: "/shadab.jpg",
+      type: "Conference",
+      actions: {
+        href: "/events/icidssd-2024",
+        label: "View Details",
+      },
     },
   ]
+
 
   return (
     <main className="px-8 md:px-12 py-24 flex flex-col items-center min-h-screen overflow-hidden">
@@ -89,57 +146,24 @@ export default function EventsPage() {
 
       {/* Upcoming Events */}
       <section className="w-full mx-auto text-center mt-20">
-        <h3 className="font-bold text-5xl text-shadow-xs py-2 px-4 bg-[#b9ff66] inline-block rounded-xl text-black">
+        <h3 className="font-bold text-5xl text-shadow-xs py-2 px-4 inline-block rounded-xl text-black">
           Upcoming Events
         </h3>
         <div className="mt-12 flex flex-wrap justify-center gap-10">
           {upcomingEvents.map(event => (
-            <div key={event.id} className="w-xs bg-white/70 relative group border border-black/10 rounded-3xl backdrop-blur-sm overflow-hidden shadow-lg hover:shadow-[#ff6b35]/40 transition transform hover:-translate-y-3 hover:scale-105">
-              <div className="relative w-full aspect-video overflow-hidden">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 text-left">
-                <b className="text-2xl text-black">{event.title}</b>
-                <p className="text-gray-800 mt-2">{event.desc}</p>
-                <p className="flex items-center gap-1 text-gray-700 mt-3"><Calendar size={18} /> {event.date}</p>
-                <p className="flex items-center gap-1 text-gray-700"><MapPin size={18} /> {event.location}</p>
-                <button className="rounded-full hover:bg-[#ff6b35]/15 hover:scale-105 transition-transform duration-500 w-full border border-[#ff6b35] py-2 mt-4 font-semibold text-black">
-                  <Link href="/">Learn More</Link>
-                </button>
-              </div>
-            </div>
+            <CustomEventCard event={event} key={event.id} />
           ))}
         </div>
       </section>
 
       {/* Past Events */}
       <section className="w-full mx-auto text-center mt-20">
-        <h3 className="font-bold text-5xl text-shadow-xs py-2 px-4 bg-[#ff6b35]/90 inline-block rounded-xl text-white">
+        <h3 className="font-bold text-5xl text-shadow-xs py-2 px-4 inline-block rounded-xl text-black">
           Past Events
         </h3>
         <div className="mt-12 flex flex-wrap justify-center gap-10">
           {pastEvents.map(event => (
-            <div key={event.id} className="w-xs bg-white/70 relative group border border-black/10 rounded-3xl backdrop-blur-sm overflow-hidden shadow-lg hover:shadow-[#b9ff66]/40 transition transform hover:-translate-y-3 hover:scale-105">
-              <div className="relative w-full aspect-video overflow-hidden">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6 text-left">
-                <b className="text-2xl text-black">{event.title}</b>
-                <p className="text-gray-800 mt-2">{event.desc}</p>
-                <p className="flex items-center gap-1 text-gray-700 mt-3"><Calendar size={18} /> {event.date}</p>
-                <p className="flex items-center gap-1 text-gray-700"><MapPin size={18} /> {event.location}</p>
-              </div>
-            </div>
+            <CustomEventCard key={event.id} event={event}/>
           ))}
         </div>
       </section>

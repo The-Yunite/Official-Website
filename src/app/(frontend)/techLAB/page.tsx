@@ -65,14 +65,6 @@ export default function TechLabPage() {
           rootMargin="1px"
           className="w-full md:w-3/4 text-gray-700 mt-6 font-semibold text-lg md:text-xl"
         />
-        <div className="mt-12 flex gap-6">
-          <Link href="/" className="bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-lg py-3 px-8 font-semibold hover:shadow-xl hover:brightness-110 transition">
-            Explore Solutions
-          </Link>
-          <Link href="/" className="border border-black text-black rounded-full py-3 px-8 font-semibold hover:bg-black/10 transition hover:shadow-lg">
-            Get Started
-          </Link>
-        </div>
       </section>
 
       {/* Solutions Section */}
