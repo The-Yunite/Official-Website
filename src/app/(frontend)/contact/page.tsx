@@ -73,40 +73,31 @@ export default function ContactPage() {
         >
           <AccordionItem value="item-1">
             <AccordionTrigger className="font-semibold text-black hover:text-[#ff6b35] transition">
-              Product Information
+              What is Yunyt?
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-gray-700">
               <p>
-                Our flagship product combines cutting-edge technology with sleek design. Built with premium materials, it offers unparalleled performance and reliability.
-              </p>
-              <p>
-                Key features include advanced processing capabilities, and an intuitive user interface designed for both beginners and experts.
+                Yunyt is a youth-driven company offering digital solutions and event services for startups, businesses, and institutions
               </p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
             <AccordionTrigger className="font-semibold text-black hover:text-[#ff6b35] transition">
-              Shipping Details
+               What services do you provide?
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-gray-700">
               <p>
-                We offer worldwide shipping through trusted courier partners. Standard delivery takes 3-5 business days, while express shipping ensures delivery within 1-2 business days.
-              </p>
-              <p>
-                All orders are carefully packaged and fully insured. Track your shipment in real-time through our dedicated tracking portal.
+                We provide web solutions, business analysis, AI models, AI agents, automation, and event management services.
               </p>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
             <AccordionTrigger className="font-semibold text-black hover:text-[#ff6b35] transition">
-              Return Policy
+              Who do you work with?
             </AccordionTrigger>
             <AccordionContent className="flex flex-col gap-4 text-gray-700">
               <p>
-                We stand behind our products with a comprehensive 30-day return policy. If you're not completely satisfied, simply return the item in its original condition.
-              </p>
-              <p>
-                Our hassle-free return process includes free return shipping and full refunds processed within 48 hours of receiving the returned item.
+                We collaborate with startups, businesses, educational institutions, and organizations looking for innovative digital solutions and event services.
               </p>
             </AccordionContent>
           </AccordionItem>

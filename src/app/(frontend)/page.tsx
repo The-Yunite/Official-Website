@@ -1,6 +1,5 @@
 "use client"
 
-import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import BlurText from '@/components/BlurText'
@@ -10,11 +9,9 @@ import {
   ArrowUpRight,
   Bot,
   Building2,
-  Calendar,
   CodeXml,
   Globe,
   GraduationCap,
-  MapPin,
   Mic,
   Shield,
   Workflow,
@@ -27,47 +24,46 @@ export default function HomePage() {
     {
       id: '12345',
       status: 'Past',
-      participantsCount: '200 Participants',
+      participantsCount: 200,
       image: {
         src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
         alt: 'Brainhack Ideathon',
       },
-      description :"",
+      description: "",
       title: 'Brainhack Ideathon',
       date: 'November 17, 2025',
       location: 'Jamia Hamdard, New Delhi, India',
       type: 'Ideathon',
-      actions: { href: '/', label: 'Learn More' },
+      action: { href: '/', label: 'Learn More' },
     },
     {
       id: '12346',
       status: 'Upcoming',
-      participantsCount: '200 Participants',
+      participantsCount: 200,
       image: {
         src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
         alt: 'Brainhack Ideathon',
       },
-      description :"",
+      description: "",
       title: 'Brainhack Ideathon',
       date: 'November 17, 2025',
       location: 'Jamia Hamdard, New Delhi, India',
       type: 'Ideathon',
-      actions: { href: '/', label: 'Learn More' },
+      action: { href: '/', label: 'Learn More' },
     },
     {
       id: '12347',
       status: 'Past',
-      participantsCount: '200 Participants',
+      participantsCount: 200,
       image: {
-        src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
-        alt: 'Brainhack Ideathon',
+        cloudinaryUrl: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
       },
-      description :"",
+      description: "",
       title: 'Brainhack Ideathon',
       date: 'November 17, 2025',
       location: 'Jamia Hamdard, New Delhi, India',
       type: 'Ideathon',
-      actions: { href: '/', label: 'Learn More' },
+      action: { href: '/', label: 'Learn More' },
     },
   ]
 
@@ -219,7 +215,7 @@ export default function HomePage() {
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
           {events.map((event) => (
-            <CustomEventCard key={event.id}  event={event}/>
+            <CustomEventCard key={event.id} event={event} />
           ))}
         </div>
 

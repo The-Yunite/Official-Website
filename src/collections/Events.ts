@@ -17,6 +17,11 @@ export const Events: CollectionConfig = {
       required: true,
     },
     {
+      name: 'isFeatured',
+      type: 'checkbox',
+      required: true,
+    },
+    {
       name: 'participantsCount',
       type: 'number',
       required: false,
