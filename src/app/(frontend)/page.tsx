@@ -15,15 +15,15 @@ export default function HomePage() {
 
   // const headers = await getHeaders()
   // const payloadConfig = await config
-  const payload = await getPayload({ config })
+  // const payload = await getPayload({ config })
   // const { user } = await payload.auth({ headers })
 
   // const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
-  const event = await payload.find({
-    collection:'events',
+  // const event = await payload.find({
+  //   collection:'events',
 
-  })
+  // })
 
   const events = [
     {
