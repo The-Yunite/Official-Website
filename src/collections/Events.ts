@@ -1,36 +1,74 @@
 import type { CollectionConfig } from 'payload'
 
-export const Event: CollectionConfig = {
+export const Events: CollectionConfig = {
   slug: 'events',
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'Title',
+      name: 'title',
       type: 'text',
       required: true,
     },
     {
-        name: 'Date',
-        type: 'date',
-        required: true,
+      name: 'status',
+      type: 'text',
+      required: true,
     },
     {
-        name: 'Location',
-        type: 'text',
-        required: true,
+      name: 'participantsCount',
+      type: 'number',
+      required: false,
     },
     {
-        name: 'Description',
-        type: 'textarea',
-        required: false,
+      name: 'date',
+      type: 'date',
+      required: true,
     },
     {
-        name: 'Image',
-        type: 'upload',
-        relationTo: 'media',
-        required: false,
+      name: 'location',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'type',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'action',
+      type: 'group',
+      fields: [
+        {
+          name: "href",
+          type: "text",
+        },
+        {
+          name: "label",
+          type: "text",
+        }
+      ]
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+      required: false,
+    },
+    {
+      name: "image",
+      type: 'group',
+      fields: [
+        {
+          name: 'Local',
+          type: 'upload',
+          relationTo: 'media',
+        },
+        {
+          name: 'cloudinaryUrl',
+          type: 'text',
+        }
+      ]
     }
   ],
 }

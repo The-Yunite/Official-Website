@@ -8,8 +8,8 @@ import sharp from 'sharp'
 import { formBuilderPlugin } from '@payloadcms/plugin-form-builder'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
-import { Event } from './collections/Events'
-import { Service } from './collections/Services'
+import { Events } from './collections/Events'
+import { Services } from './collections/Services'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -21,7 +21,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Event, Service],
+  collections: [Users, Media, Events, Services],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

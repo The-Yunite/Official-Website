@@ -1,6 +1,24 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@font-face {
+  font-family: 'Amarna';
+  src: url('/fonts/Amarna-VariableFont_wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Amarna';
+  src: url('/fonts/Amarna-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: 500;
+  font-style: italic;
+}
+
+body {
+  font-family: 'Amarna', sans-serif;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -51,9 +69,10 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.4181 0.1311 331.61);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: oklch(100% 0.00011 271.152);
+  --tertiary : oklch(0% 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -116,6 +135,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -123,11 +143,13 @@
 
 @layer components {
   .glassEffect {
-    @apply backdrop-blur-md bg-white/10;
+    @apply backdrop-blur-lg bg-white/30;
   }
+
   .scaleOnHover {
     @apply hover:scale-105 transition-transform duration-100;
   }
+
   .popOnHover {
     @apply hover:-translate-y-1 transition-transform duration-100;
   }
