@@ -85,6 +85,8 @@ const Navbar = () => {
                         {pages.map((page) => (
                             <li key={page.href} className={`popOnHover my-3 scaleOnHover ${(pathname === page.href) && " font-semibold"}`}><Link href={page.href}>{page.name}</Link></li>
                         ))}
+                        <hr className='my-3'/>
+                        <li className={`popOnHover scaleOnHover ${(pathname === "/joinUs") && " font-semibold "}`}><Link href={"/joinUs"}>Join Yunyt</Link></li>
                     </ul>
                 </nav>
             </div>

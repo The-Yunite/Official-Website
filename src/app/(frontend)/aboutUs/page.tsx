@@ -14,6 +14,7 @@ export default function TeamsPage() {
       image: "/shadab.jpg",
       bio: "Focused on building scalable solutions and driving innovation through code.",
       handle: "@shadabkhan",
+      url: "https://www.linkedin.com/in/devshadabkhan/"
     },
     {
       id: 2,
@@ -22,6 +23,7 @@ export default function TeamsPage() {
       image: "/atif.jpg",
       bio: "Passionate about design, storytelling, and creating memorable brand experiences.",
       handle: "@atifkhan",
+      url:"https://www.linkedin.com/in/mohd-atif-khan-candors-175043227/"
     },
     {
       id: 3,
@@ -30,6 +32,7 @@ export default function TeamsPage() {
       image: "/wajid.jpg",
       bio: "Ensures flawless execution and seamless collaboration across all projects.",
       handle: "@wajidali",
+      url:"https://www.instagram.com/wajidali_87?igsh=Z2NxZTJhZWljNGF4"
     },
   ]
 
@@ -96,7 +99,7 @@ export default function TeamsPage() {
                 <div className="mt-6 flex justify-between items-center">
                   <span className="text-sm text-gray-500">{member.handle}</span>
                   <Link
-                    href="/"
+                    href={member.url}
                     className="px-4 py-2 rounded-full text-sm font-semibold text-black border border-black hover:bg-black/10 transition"
                   >
                     Contact

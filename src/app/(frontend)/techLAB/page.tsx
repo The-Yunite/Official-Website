@@ -93,7 +93,7 @@ export default function TechLabPage() {
             return (
               <article
                 key={s.id}
-                className="w-full max-w-[400px] h-[480px] flex flex-col bg-white border border-black/10 rounded-3xl overflow-hidden shadow-lg hover:shadow-[#ff6b35]/40 transition-transform hover:-translate-y-2"
+                className="w-full max-w-[400px] flex flex-col bg-white border border-black/10 rounded-3xl overflow-hidden shadow-lg hover:shadow-[#ff6b35]/40 transition-transform hover:-translate-y-2"
               >
                 {(s.image?.cloudinaryUrl || s.image?.Local) && (
 
@@ -102,7 +102,7 @@ export default function TechLabPage() {
                       src={s.image?.cloudinaryUrl || s.image.Local?.url || ""}
                       alt={s.title}
                       fill
-                      className="object-contain p-6"
+                      className="object-cover w-full"
                     />
                   </div>
                 )}

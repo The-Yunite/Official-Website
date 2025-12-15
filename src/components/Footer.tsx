@@ -18,21 +18,19 @@ const Footer = () => {
                     />
                     <div>Making events memorable and brands stand out since 2025.</div>
                 </div>
-                <div className="flex flex-2/4">
+                <div className="flex w-full md:flex-2/4">
                 <ul className="flex-1/2">
                     <div className='font-bold'>Quick Links</div>
-                    <li><Link href="/">Services</Link></li>
-                    <li><Link href="/">Events</Link></li>
-                    <li><Link href="/">Pricing</Link></li>
-                    <li><Link href="/">About</Link></li>
-                    <li><Link href="/">Contact</Link></li>
+                    <li><Link href="/our-events">Our Events</Link></li>
+                    <li><Link href="/techLAB">TechLab</Link></li>
+                    <li><Link href="/aboutUs">About Us</Link></li>
+                    <li><Link href="/contact">Contact Us</Link></li>
+                    <li><Link href="/joinUs">Join Yunyt</Link></li>
                 </ul>
                 <ul className="flex-1/2">
                     <div className='font-bold'>Services</div>
-                    <li><Link href="/">Hackathons</Link></li>
-                    <li><Link href="/">Corporate Events</Link></li>
-                    <li><Link href="/">Workshops</Link></li>
-                    <li><Link href="/">PrintLab</Link></li>
+                    <li><Link href="/our-events">Event Management</Link></li>
+                    <li><Link href="/techLAB">Tech Services</Link></li>
                 </ul>
                 </div>
                 <div className='flex-1/4'>

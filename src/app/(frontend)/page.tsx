@@ -172,7 +172,12 @@ export default function HomePage() {
             </button>
           </div>
         </div>
-        <div className="md:w-[40%] h-full relative ">
+        <div className="md:w-[40%] h-full flex justify-center items-center pt-10 ">
+          <img
+          src={"/growth.png"}
+          className='object-contain w-[80%] hidden md:block'
+          alt='Brand Growth'
+          />
         </div>
       </section>
 
@@ -360,7 +365,7 @@ export default function HomePage() {
 
           <div className="mt-5 text-center">
             <p className="text-gray-800 text-xl">Or reach us directly at:</p>
-            <p className="text-xl font-semibold text-[#f07c4a]">weareyunyt@gmail.com</p>
+            <p className="text-xl font-semibold text-primary">weareyunyt@gmail.com</p>
           </div>
         </div>
       </section>
