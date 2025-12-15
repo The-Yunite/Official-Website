@@ -9,7 +9,7 @@ type LucideIconComponent = React.FC<LucideProps> | React.ForwardRefExoticCompone
 
 // 2. Define props for the component
 interface DynamicLucideIconProps extends LucideProps {
-  iconName: keyof typeof LucideIcons | null | undefined;
+  iconName: keyof typeof LucideIcons | null | undefined | string;
 }
 
 // 3. Fallback component for the Suspense boundary
