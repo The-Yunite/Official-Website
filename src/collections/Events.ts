@@ -10,6 +10,7 @@ export const Events: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      unique:true
     },
     {
       name: 'status',
@@ -20,6 +21,7 @@ export const Events: CollectionConfig = {
       name: 'isFeatured',
       type: 'checkbox',
       required: true,
+      defaultValue:false
     },
     {
       name: 'participantsCount',

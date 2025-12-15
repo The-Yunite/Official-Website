@@ -42,7 +42,7 @@ const Navbar = () => {
             <nav className={`hidden h-16 min-w-1/2 mx-auto rounded-full px-4 md:flex justify-center items-center transition-all duration-300 ${scrolled ? '' : 'glassEffect'}`}>
                 <ul className={`w-full flex items-center justify-around ${scrolled && "text-shadow-lg"}`}>
                     {pages.map((page) => (
-                        <li key={page.href} className={`popOnHover scaleOnHover ${(pathname === page.href) && " font-semibold list-disc ml-2"}`}><Link href={page.href}>{page.name}</Link></li>
+                        <li key={page.href} className={`popOnHover scaleOnHover ${(pathname === page.href) && " font-semibold "}`}><Link href={page.href}>{page.name}</Link></li>
                     ))}
                 </ul>
             </nav>
@@ -83,7 +83,7 @@ const Navbar = () => {
                 <nav className="p-4 space-y-4">
                     <ul className='ml-4'>
                         {pages.map((page) => (
-                            <li key={page.href} className={`popOnHover my-3 scaleOnHover ${(pathname === page.href) && " font-semibold list-disc ml-2"}`}><Link href={page.href}>{page.name}</Link></li>
+                            <li key={page.href} className={`popOnHover my-3 scaleOnHover ${(pathname === page.href) && " font-semibold"}`}><Link href={page.href}>{page.name}</Link></li>
                         ))}
                     </ul>
                 </nav>

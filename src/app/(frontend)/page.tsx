@@ -18,54 +18,61 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 import CustomEventCard from '@/components/CustomEventCard'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
+import Event from '@/types/events'
 
 export default function HomePage() {
-  const events = [
-    {
-      id: '12345',
-      status: 'Past',
-      participantsCount: 200,
-      image: {
-        src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
-        alt: 'Brainhack Ideathon',
-      },
-      description: "",
-      title: 'Brainhack Ideathon',
-      date: 'November 17, 2025',
-      location: 'Jamia Hamdard, New Delhi, India',
-      type: 'Ideathon',
-      action: { href: '/', label: 'Learn More' },
-    },
-    {
-      id: '12346',
-      status: 'Upcoming',
-      participantsCount: 200,
-      image: {
-        src: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
-        alt: 'Brainhack Ideathon',
-      },
-      description: "",
-      title: 'Brainhack Ideathon',
-      date: 'November 17, 2025',
-      location: 'Jamia Hamdard, New Delhi, India',
-      type: 'Ideathon',
-      action: { href: '/', label: 'Learn More' },
-    },
-    {
-      id: '12347',
-      status: 'Past',
-      participantsCount: 200,
-      image: {
-        cloudinaryUrl: 'https://res.cloudinary.com/dd1gsz5ak/image/upload/v1762803416/IMG_65081_ncgpuz.png',
-      },
-      description: "",
-      title: 'Brainhack Ideathon',
-      date: 'November 17, 2025',
-      location: 'Jamia Hamdard, New Delhi, India',
-      type: 'Ideathon',
-      action: { href: '/', label: 'Learn More' },
-    },
-  ]
+
+  const [fetching, setFetching] = useState<boolean>()
+  const [featuredEvents, setfeaturedEvents] = useState<Event[]>([])
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      setFetching(true);
+      try {
+
+        const storedFeaturedEvents = sessionStorage.getItem('featuredEvents');
+
+        if (storedFeaturedEvents) {
+          setfeaturedEvents(JSON.parse(storedFeaturedEvents));
+          setFetching(false);
+        }
+        else {
+
+          const response = await axios.get("/getFeaturedEvents", {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const apiResponse = response.data;
+
+          console.log(apiResponse)
+
+          if (apiResponse.success) {
+            setFetching(false);
+            const data = apiResponse.featuredEvents;
+            setfeaturedEvents(data);
+            sessionStorage.setItem('featuredEvents',JSON.stringify(data))
+            console.log(apiResponse.featuredEvents);
+          }
+          else {
+            console.error("error : " + apiResponse.error)
+            setFetching(false)
+          }
+        }
+      } catch (error) {
+        console.log("Error fetching events data:", error);
+        setFetching(false)
+      }
+      finally {
+        setFetching(false)
+      }
+    }
+    fetchData();
+  }, [])
 
   const eventServices = [
     {
@@ -163,7 +170,6 @@ export default function HomePage() {
           </div>
         </div>
         <div className="md:w-[40%] h-full relative ">
-          <Image src={'/logo.png'} fill alt="Yunyt" className="object-cover" />
         </div>
       </section>
 
@@ -214,7 +220,7 @@ export default function HomePage() {
         </div>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
-          {events.map((event) => (
+          {featuredEvents.map((event) => (
             <CustomEventCard key={event.id} event={event} />
           ))}
         </div>

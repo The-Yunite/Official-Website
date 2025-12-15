@@ -6,17 +6,20 @@ import { ArrowUpRight } from 'lucide-react'
 import CustomEventCard from '@/components/CustomEventCard'
 import axios from "axios";
 import Event from '@/types/events'
+import SkeletonEventCard from '@/components/SkeletonEventCard'
 
 export default function EventsPage() {
 
+  const [fetching, setFetching] = useState<boolean>()
   const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([])
   const [pastEvents, setPastEvents] = useState<Event[]>([])
 
   useEffect(() => {
 
     const fetchData = async () => {
+      setFetching(true);
       try {
-        const response = await axios.get("/api/getEvents", {
+        const response = await axios.get("/getEvents", {
           headers: {
             'Content-Type': 'application/json'
           }
@@ -25,14 +28,20 @@ export default function EventsPage() {
         const apiResponse = response.data;
 
         if (apiResponse.success) {
+          setFetching(false);
           setPastEvents(apiResponse.pastEvents);
           setUpcomingEvents(apiResponse.upcomingEvents);
         }
         else {
           console.error("error : " + apiResponse.error)
+          setFetching(false)
         }
       } catch (error) {
         console.log("Error fetching events data:", error);
+        setFetching(false)
+      }
+      finally{
+        setFetching(false)
       }
     }
     fetchData();
@@ -65,35 +74,38 @@ export default function EventsPage() {
           className="w-full md:w-3/4 text-gray-700 mt-5 font-semibold text-xl"
         />
       </section>
+      {fetching ? (
+        <section className="mt-12 flex flex-wrap justify-center gap-5">{
+          [...Array(3)].map((_, i) => <SkeletonEventCard key={i} />)}
+        </section>) : (<>
+          {/* Upcoming Events */}
+          {upcomingEvents.length > 0 && (
+            <section className="w-full mx-auto text-center mt-20">
+              <h3 className="font-bold text-5xl text-shadow-xs py-2 px-4 inline-block rounded-xl text-black">
+                Upcoming Events
+              </h3>
+              <div className="mt-12 flex flex-wrap justify-center gap-10">
+                {upcomingEvents.map(event => (
+                  <CustomEventCard key={event.id} event={event} />
+                ))}
+              </div>
+            </section>
+          )}
 
-      {/* Upcoming Events */}
-      {upcomingEvents.length > 0 && (
-        <section className="w-full mx-auto text-center mt-20">
-          <h3 className="font-bold text-5xl text-shadow-xs py-2 px-4 inline-block rounded-xl text-black">
-            Upcoming Events
-          </h3>
-          <div className="mt-12 flex flex-wrap justify-center gap-10">
-            {upcomingEvents.map(event => (
-              <CustomEventCard key={event.id} event={event} />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {/* Past Events */}
-      {pastEvents.length > 0 && (
-        <section className="w-full mx-auto text-center mt-20">
-          <h3 className="font-bold text-5xl text-shadow-xs py-2 px-4 inline-block rounded-xl text-black">
-            Past Events
-          </h3>
-          <div className="mt-12 flex flex-wrap justify-center gap-10">
-            {pastEvents.map(event => (
-              <CustomEventCard key={event.id} event={event} />
-            ))}
-          </div>
-        </section>
-      )}
-
+          {/* Past Events */}
+          {pastEvents.length > 0 && (
+            <section className="w-full mx-auto text-center mt-20">
+              <h3 className="font-bold text-5xl text-shadow-xs py-2 px-4 inline-block rounded-xl text-black">
+                Past Events
+              </h3>
+              <div className="mt-12 flex flex-wrap justify-center gap-10">
+                {pastEvents.map(event => (
+                  <CustomEventCard key={event.id} event={event} />
+                ))}
+              </div>
+            </section>
+          )}
+        </>)}
       {/* CTA Section */}
       <section className="w-full min-h-32 flex flex-col justify-center items-center mt-24 text-center">
         <BlurText

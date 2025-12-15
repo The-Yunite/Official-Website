@@ -1,34 +1,65 @@
 "use client"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import BlurText from "@/components/BlurText"
 import Link from "next/link"
-import { ArrowUpRight, Users, Briefcase, Lightbulb } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import "lucide-react"
+import axios from "axios"
+import JobOpening from "@/types/jobOpenings"
+import DynamicLucideIcon from "@/components/DynamicLucideIcon"
 
 export default function JoinYunytPage() {
-  const positions = [
-    {
-      id: 1,
-      title: "Frontend Developer",
-      desc: "Craft beautiful, scalable interfaces using React, Tailwind, and modern tooling.",
-      icon: Briefcase,
-    },
-    {
-      id: 2,
-      title: "UI/UX Designer",
-      desc: "Design magical experiences and brand-aligned visuals that inspire and engage.",
-      icon: Lightbulb,
-    },
-    {
-      id: 3,
-      title: "Project Coordinator",
-      desc: "Drive flawless execution and seamless collaboration across Yunyt projects.",
-      icon: Users,
-    },
-  ]
+
+  const [fetching, setFetching] = useState<boolean>();
+  const [jobOpenings, setjobOpenings] = useState<JobOpening[]>([]);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      setFetching(true);
+      try {
+
+        const storedjobOpenings = sessionStorage.getItem('jobOpenings');
+
+        if (storedjobOpenings) {
+          setjobOpenings(JSON.parse(storedjobOpenings));
+          setFetching(false);
+        }
+        else {
+
+          const response = await axios.get("/getJobOpenings", {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const apiResponse = response.data;
+
+          if (apiResponse.success) {
+            setFetching(false);
+            const data = apiResponse.jobOpenings;
+            setjobOpenings(data);
+            sessionStorage.setItem('jobOpenings', JSON.stringify(data))
+          }
+          else {
+            console.error("error : " + apiResponse.error)
+            setFetching(false)
+          }
+        }
+      } catch (error) {
+        console.log("Error fetching events data:", error);
+        setFetching(false)
+      }
+      finally {
+        setFetching(false)
+      }
+    }
+    fetchData();
+  }, [])
 
   return (
     <main className="px-10 flex flex-col items-center">
-      
+
       {/* Hero Section - Centered with safe spacing */}
       <section className="w-full min-h-[60vh] flex flex-col justify-center items-center text-center pt-24">
         <BlurText
@@ -64,23 +95,27 @@ export default function JoinYunytPage() {
           Open Positions
         </h2>
         <div className="mt-16 grid md:grid-cols-3 gap-12 place-items-center">
-          {positions.map((pos) => {
-            const Icon = pos.icon
+          {jobOpenings.map((pos) => {
             return (
               <article
                 key={pos.id}
                 className="w-full max-w-[320px] h-80 flex flex-col justify-between bg-white/80 border border-gray-200 rounded-3xl shadow-md hover:shadow-xl hover:shadow-[#ff6b35]/30 transition-transform hover:-translate-y-2 hover:scale-[1.02] p-6 text-left"
               >
                 <div>
-                  <Icon size={40} className="text-black mb-3" />
+                  <DynamicLucideIcon
+                    iconName={pos.icon}
+                    size={40}
+                    // color="" // Tailwind Emerald color example
+                    className="text-black mb-3"
+                  />
                   <h3 className="text-xl font-extrabold text-black">{pos.title}</h3>
-                  <p className="text-gray-700 mt-2 text-sm">{pos.desc}</p>
+                  <p className="text-gray-700 mt-2 text-sm">{pos.description}</p>
                 </div>
                 <Link
-                  href="/apply"
+                  href={pos.action.href!}
                   className="mt-6 inline-flex items-center gap-2 bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-md py-2 px-4 font-semibold hover:shadow-lg transition"
                 >
-                  Apply Now <ArrowUpRight size={18} />
+                  {pos.action.label} <ArrowUpRight size={18} />
                 </Link>
               </article>
             )
