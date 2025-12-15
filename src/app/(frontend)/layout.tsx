@@ -6,7 +6,7 @@ import SessionClearer from "@/components/SessionClearer";
 
 export const metadata: Metadata = {
   title: "The Yunyt",
-  description: "Yunyt is your all-in-one event management and printing solution, designed to make your events unforgettable and your brand shine with PrintLab.",
+  description: "Yunyt helps startups and businesses build, optimize, and scale digital products with web platforms, automation, practical AI, and tech event organization.",
 };
 
 export default function RootLayout({

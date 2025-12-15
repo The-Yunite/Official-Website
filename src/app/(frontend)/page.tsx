@@ -58,8 +58,8 @@ export default function HomePage() {
             const techData = apiResponse.featuredTechServices;
             setfeaturedEvents(eventData);
             setfeaturedTechServices(techData);
-            sessionStorage.setItem('featuredEvents',JSON.stringify(eventData))
-            sessionStorage.setItem('featuredTechServices',JSON.stringify(techData))
+            sessionStorage.setItem('featuredEvents', JSON.stringify(eventData))
+            sessionStorage.setItem('featuredTechServices', JSON.stringify(techData))
           }
           else {
             console.error("error : " + apiResponse.error)
@@ -174,9 +174,9 @@ export default function HomePage() {
         </div>
         <div className="md:w-[40%] h-full flex justify-center items-center pt-10 ">
           <img
-          src={"/growth.png"}
-          className='object-contain w-[80%] hidden md:block'
-          alt='Brand Growth'
+            src={"/growth.png"}
+            className='object-contain w-[80%] hidden md:block'
+            alt='Brand Growth'
           />
         </div>
       </section>
@@ -184,6 +184,22 @@ export default function HomePage() {
       {/* Services Section */}
       <section className="w-full my-16 text-center" id='Our-Services'>
         <h2 className="font-bold text-5xl text-black">Our Services</h2>
+
+        <h3 className="mt-12 text-xl text-black underline underline-offset-4">Tech Services</h3>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
+          {techServices.map((service) => (
+            <div
+              key={service.id}
+              className="rounded-2xl p-6 bg-white/70 backdrop-blur-md border border-black/10 shadow-lg transition hover:-translate-y-2 hover:scale-105 hover:shadow-[#ff6b35]/40 max-w-xs mx-auto md:max-w-none"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-2xl font-bold text-black">{service.title}</h3>
+                {service.icon}
+              </div>
+              <p className="text-gray-700">{service.desc}</p>
+            </div>
+          ))}
+        </div>
 
         <h3 className="mt-4 text-xl text-black underline underline-offset-4">Management Services</h3>
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
@@ -201,46 +217,6 @@ export default function HomePage() {
           ))}
         </div>
 
-        <h3 className="mt-12 text-xl text-black underline underline-offset-4">Tech Services</h3>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-8">
-          {techServices.map((service) => (
-            <div
-              key={service.id}
-              className="rounded-2xl p-6 bg-white/70 backdrop-blur-md border border-black/10 shadow-lg transition hover:-translate-y-2 hover:scale-105 hover:shadow-[#ff6b35]/40 max-w-xs mx-auto md:max-w-none"
-            >
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-2xl font-bold text-black">{service.title}</h3>
-                {service.icon}
-              </div>
-              <p className="text-gray-700">{service.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Our Events */}
-      <section className="w-full my-16">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="font-bold text-5xl text-black">Our Events</h2>
-          <p className="text-gray-700 mt-4 text-xl">
-            Discover our portfolio of memorable events and upcoming opportunities
-          </p>
-        </div>
-
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
-          {featuredEvents.map((event) => (
-            <CustomEventCard key={event.id} event={event} />
-          ))}
-        </div>
-
-        <div className="max-w-6xl mx-auto flex justify-center mt-10">
-          <Link
-            href="/our-events"
-            className="bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 flex items-center gap-1 transition hover:shadow-xl hover:brightness-110"
-          >
-            View More <ArrowUpRight className="inline-block" />
-          </Link>
-        </div>
       </section>
 
       {/* TechLab */}
@@ -289,8 +265,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Our Events */}
+      <section className="w-full my-16">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="font-bold text-5xl text-black">Our Events</h2>
+          <p className="text-gray-700 mt-4 text-xl">
+            Discover our portfolio of memorable events and upcoming opportunities
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+          {featuredEvents.map((event) => (
+            <CustomEventCard key={event.id} event={event} />
+          ))}
+        </div>
+
+        <div className="max-w-6xl mx-auto flex justify-center mt-10">
+          <Link
+            href="/our-events"
+            className="bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black text-xl rounded-full shadow-lg py-3 px-6 flex items-center gap-1 transition hover:shadow-xl hover:brightness-110"
+          >
+            View More <ArrowUpRight className="inline-block" />
+          </Link>
+        </div>
+      </section>
+
       {/* About Yunyt - Neutral & Meaningful with Hover */}
-      <section className="w-full my-20 relative">
+      <section className="w-full my-20 px-4 relative">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-2 sm:px-6">
           {/* Left: Text Content */}
           <div className="space-y-6">
