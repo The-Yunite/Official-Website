@@ -23,8 +23,8 @@ const CustomForm = ({ showHeading, clasName }: CustomFormProps) => {
     setResult("Sending...");
 
     try {
-      const response = await axios.post(`${process.env.SITE_URL}/api/form-submissions`, {
-        form: '693586e457cdeb5b6b7ac961',
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_SITE_URL}/api/form-submissions`, {
+        form: process.env.NEXT_PUBLIC_CONTACT_FORM_RESP,
         submissionData: [
           { field: 'name', value: name },
           { field: 'email', value: email },
