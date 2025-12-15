@@ -1,7 +1,6 @@
 "use client"
 
 import Link from 'next/link'
-import Image from 'next/image'
 import BlurText from '@/components/BlurText'
 import SpotlightCard from '@/components/SpotlightCard'
 import CustomForm from '@/components/CustomForm'
@@ -21,11 +20,13 @@ import CustomEventCard from '@/components/CustomEventCard'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Event from '@/types/events'
+import TechService from '@/types/techServices'
 
 export default function HomePage() {
 
   const [fetching, setFetching] = useState<boolean>()
   const [featuredEvents, setfeaturedEvents] = useState<Event[]>([])
+  const [featuredTechServices, setfeaturedTechServices] = useState<TechService[]>([])
 
   useEffect(() => {
 
@@ -34,14 +35,16 @@ export default function HomePage() {
       try {
 
         const storedFeaturedEvents = sessionStorage.getItem('featuredEvents');
+        const storedFeaturedTechServices = sessionStorage.getItem('featuredTechServices');
 
-        if (storedFeaturedEvents) {
+        if (storedFeaturedEvents && storedFeaturedTechServices) {
           setfeaturedEvents(JSON.parse(storedFeaturedEvents));
+          setfeaturedTechServices(JSON.parse(storedFeaturedTechServices));
           setFetching(false);
         }
         else {
 
-          const response = await axios.get("/getFeaturedEvents", {
+          const response = await axios.get("/getGeneralData", {
             headers: {
               'Content-Type': 'application/json'
             }
@@ -49,14 +52,14 @@ export default function HomePage() {
 
           const apiResponse = response.data;
 
-          console.log(apiResponse)
-
           if (apiResponse.success) {
             setFetching(false);
-            const data = apiResponse.featuredEvents;
-            setfeaturedEvents(data);
-            sessionStorage.setItem('featuredEvents',JSON.stringify(data))
-            console.log(apiResponse.featuredEvents);
+            const eventData = apiResponse.featuredEvents;
+            const techData = apiResponse.featuredTechServices;
+            setfeaturedEvents(eventData);
+            setfeaturedTechServices(techData);
+            sessionStorage.setItem('featuredEvents',JSON.stringify(eventData))
+            sessionStorage.setItem('featuredTechServices',JSON.stringify(techData))
           }
           else {
             console.error("error : " + apiResponse.error)
@@ -162,10 +165,10 @@ export default function HomePage() {
           />
           <div className="mt-5 md:mt-10 font-semibold flex gap-5">
             <button className="bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-lg py-3 px-6 scaleOnHover transition hover:shadow-xl hover:brightness-110">
-              <Link href="/">Learn More</Link>
+              <Link href="/contact">Contact Us</Link>
             </button>
             <button className="border border-black text-black rounded-full py-3 px-6 scaleOnHover hover:bg-black/10 transition hover:shadow-lg">
-              <Link href="/">Get Started</Link>
+              <Link href="#Our-Services">Get Started</Link>
             </button>
           </div>
         </div>
@@ -174,7 +177,7 @@ export default function HomePage() {
       </section>
 
       {/* Services Section */}
-      <section className="w-full my-16 text-center">
+      <section className="w-full my-16 text-center" id='Our-Services'>
         <h2 className="font-bold text-5xl text-black">Our Services</h2>
 
         <h3 className="mt-4 text-xl text-black underline underline-offset-4">Management Services</h3>
@@ -182,7 +185,7 @@ export default function HomePage() {
           {eventServices.map((service) => (
             <div
               key={service.id}
-              className="rounded-2xl p-6 bg-white/70 backdrop-blur-md border border-black/10 shadow-lg transition hover:-translate-y-2 hover:scale-105 hover:shadow-[#ff6b35]/40"
+              className="rounded-2xl p-6 bg-white/70 backdrop-blur-md border border-black/10 shadow-lg transition hover:-translate-y-2 hover:scale-105 hover:shadow-[#ff6b35]/40 max-w-xs mx-auto md:max-w-none"
             >
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-2xl font-bold text-black">{service.title}</h3>
@@ -198,7 +201,7 @@ export default function HomePage() {
           {techServices.map((service) => (
             <div
               key={service.id}
-              className="rounded-2xl p-6 bg-white/70 backdrop-blur-md border border-black/10 shadow-lg transition hover:-translate-y-2 hover:scale-105 hover:shadow-[#ff6b35]/40"
+              className="rounded-2xl p-6 bg-white/70 backdrop-blur-md border border-black/10 shadow-lg transition hover:-translate-y-2 hover:scale-105 hover:shadow-[#ff6b35]/40 max-w-xs mx-auto md:max-w-none"
             >
               <div className="flex justify-between items-center mb-4">
                 <h3 className="text-2xl font-bold text-black">{service.title}</h3>
@@ -353,7 +356,7 @@ export default function HomePage() {
           </p>
 
           {/* Original clean form */}
-          <CustomForm showHeading={false} clasName={'w-full max-w-md'} />
+          <CustomForm showHeading={false} clasName={'w-full max-w-xs md:max-w-md'} />
 
           <div className="mt-5 text-center">
             <p className="text-gray-800 text-xl">Or reach us directly at:</p>

@@ -14,7 +14,17 @@ export const Events: CollectionConfig = {
     },
     {
       name: 'status',
-      type: 'text',
+      type: 'select',
+      options:[
+        {
+          label:"Upcoming",
+          value:"Upcoming"
+        },
+        {
+          label:"Past",
+          value:"Past"
+        }
+      ],
       required: true,
     },
     {

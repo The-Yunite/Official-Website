@@ -10,7 +10,9 @@ interface CustomEventProps {
         status: string,
         participantsCount?: number,
         image: {
-            Local?: string;
+            Local?: {
+            url: string
+        }
             cloudinaryUrl?: string;
         };
         date: string,
@@ -23,11 +25,11 @@ interface CustomEventProps {
 
 const CustomEventCard = ({ event, }: CustomEventProps) => {
     return (
-        <div className={`w-xs bg-white/70 relative group border border-black/10 rounded-3xl backdrop-blur-sm overflow-hidden shadow-lg ${event.status.toLowerCase() !== "past" ? "hover:shadow-[#b9ff66]/40" : "hover:shadow-[#ff6b35]/40"} transition transform hover:-translate-y-3 hover:scale-105`}>
+        <div className={`w-xs mx-auto bg-white/70 relative group border border-black/10 rounded-3xl backdrop-blur-sm overflow-hidden shadow-lg ${event.status.toLowerCase() !== "past" ? "hover:shadow-[#b9ff66]/40" : "hover:shadow-[#ff6b35]/40"} transition transform hover:-translate-y-3 hover:scale-105`}>
             {(event.image.cloudinaryUrl || event.image.Local) && (
                 <div className="relative w-full aspect-video overflow-hidden">
                     <Image
-                        src={event.image.cloudinaryUrl || event.image.Local || ""}
+                        src={event.image.cloudinaryUrl || event.image.Local?.url || ""}
                         alt={event.title}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

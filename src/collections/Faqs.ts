@@ -1,20 +1,19 @@
 import type { CollectionConfig } from 'payload'
 
-export const Services: CollectionConfig = {
-  slug: 'services',
+export const Faqs: CollectionConfig = {
+  slug: 'faqs',
   access: {
     read: () => true,
   },
   fields: [
     {
-      name: 'Title',
+      name: 'question',
       type: 'text',
       required: true,
     },
     {
-        name: 'Description',
-        type: 'textarea',
-        required: true,
+      name: 'answer',
+      type: 'textarea',
     },
   ],
 }

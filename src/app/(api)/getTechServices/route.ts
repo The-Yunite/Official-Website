@@ -14,15 +14,12 @@ export async function GET() {
     try {
         const payload = await getPayloadClient();
 
-        const featuredEvents = await payload.find({
-            collection: 'events',
-            where: {
-                isFeatured: { equals: true }
-            }
+        const techServices = await payload.find({
+            collection: 'techServices',
         });
 
         return Response.json(
-            { success: true, featuredEvents:featuredEvents.docs },
+            { success: true, techServices:techServices.docs },
             { status: 200 }
         );
 

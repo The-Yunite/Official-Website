@@ -1,50 +1,66 @@
 "use client"
-import React from "react"
+import React, { useEffect, useState } from "react"
 import BlurText from "@/components/BlurText"
 import Image from "next/image"
 import Link from "next/link"
-import { Globe, Workflow, Bot, Shield, ArrowUpRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
+import axios from "axios"
+import TechService from "@/types/techServices"
+import DynamicLucideIcon from "@/components/DynamicLucideIcon"
 
 export default function TechLabPage() {
-  const solutions = [
-    {
-      id: "s1",
-      title: "Web Development",
-      desc: "Modern, responsive, and scalable web applications built with the latest frameworks and technologies.",
-      sub: "Crafting digital experiences that engage and convert.",
-      icon: Globe,
-      image: "/logo.png",
-    },
-    {
-      id: "s2",
-      title: "DevOps",
-      desc: "Streamlined CI/CD pipelines, cloud infrastructure automation, and monitoring for faster, reliable delivery.",
-      sub: "Empowering teams with agility and efficiency.",
-      icon: Workflow,
-      image: "/logo.png",
-    },
-    {
-      id: "s3",
-      title: "Artificial Intelligence & Machine Learning",
-      desc: "Intelligent solutions powered by data — predictive analytics, recommendation systems, and automation.",
-      sub: "Transforming insights into smarter decisions.",
-      icon: Bot,
-      image: "/logo.png",
-    },
-    {
-      id: "s4",
-      title: "Cybersecurity",
-      desc: "End-to-end protection with advanced threat detection, compliance, and secure infrastructure design.",
-      sub: "Safeguarding your digital assets with confidence.",
-      icon: Shield,
-      image: "/logo.png",
-    },
-  ]
+
+  const [fetching, setFetching] = useState<boolean>();
+  const [techServices, settechServices] = useState<TechService[]>([]);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      setFetching(true);
+      try {
+
+        const storedtechServices = sessionStorage.getItem('techServices');
+
+        if (storedtechServices) {
+          settechServices(JSON.parse(storedtechServices));
+          setFetching(false);
+        }
+        else {
+
+          const response = await axios.get("/getTechServices", {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          const apiResponse = response.data;
+
+          if (apiResponse.success) {
+            setFetching(false);
+            const data = apiResponse.techServices;
+            settechServices(data);
+            sessionStorage.setItem('techServices', JSON.stringify(data))
+          }
+          else {
+            console.error("error : " + apiResponse.error)
+            setFetching(false)
+          }
+        }
+      } catch (error) {
+        console.log("Error fetching events data:", error);
+        setFetching(false)
+      }
+      finally {
+        setFetching(false)
+      }
+    }
+    fetchData();
+  }, [])
 
   return (
     <main className="px-8 md:px-12 flex flex-col items-center overflow-hidden pb-40">
       {/* Hero Section */}
-      <section id="hero" className="w-full min-h-[80vh] flex flex-col justify-center items-center text-center pt-32">
+      <section id="hero" className="w-full] flex flex-col justify-center items-center text-center pt-32">
         <BlurText
           text="TechLab — Engineering the Future of Innovation."
           delay={100}
@@ -69,31 +85,38 @@ export default function TechLabPage() {
 
       {/* Solutions Section */}
       <section className="w-full py-20 mx-auto text-center">
-        <h2 className="font-bold text-5xl text-shadow-xs py-2 px-4 bg-[#b9ff66] inline-block rounded-xl text-black">
+        <h2 className="font-bold text-5xl text-shadow-xs underline underline-offset-4 px-4 inline-block rounded-xl text-black">
           Our Tech Solutions
         </h2>
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-2 gap-12 place-items-center">
-          {solutions.map((s) => {
-            const Icon = s.icon
+          {techServices.map((s) => {
             return (
               <article
                 key={s.id}
                 className="w-full max-w-[400px] h-[480px] flex flex-col bg-white border border-black/10 rounded-3xl overflow-hidden shadow-lg hover:shadow-[#ff6b35]/40 transition-transform hover:-translate-y-2"
               >
-                <div className="relative w-full h-48 bg-white/60">
-                  <Image
-                    src={s.image}
-                    alt={s.title}
-                    fill
-                    className="object-contain p-6"
-                  />
-                </div>
+                {(s.image?.cloudinaryUrl || s.image?.Local) && (
+
+                  <div className="relative w-full h-48 bg-white/60">
+                    <Image
+                      src={s.image?.cloudinaryUrl || s.image.Local?.url || ""}
+                      alt={s.title}
+                      fill
+                      className="object-contain p-6"
+                    />
+                  </div>
+                )}
                 <div className="flex-1 p-6 text-left flex flex-col justify-between">
                   <div>
-                    <Icon size={50} className="text-black mb-3" />
+                    <DynamicLucideIcon
+                      iconName={s.icon}
+                      size={50}
+                      // color="" 
+                      className="text-black mb-3"
+                    />
                     <h3 className="text-2xl font-extrabold text-black">{s.title}</h3>
-                    <p className="text-gray-800 mt-2">{s.desc}</p>
-                    <p className="text-sm text-gray-600 mt-2">{s.sub}</p>
+                    <p className="text-gray-800 mt-2">{s.description}</p>
+                    <p className="text-sm text-gray-600 mt-2">{s.subDescription}</p>
                   </div>
                   <div className="mt-6 flex gap-3">
                     <Link href="/" className="inline-flex items-center gap-2 bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-md py-2 px-4 font-semibold hover:shadow-lg transition">

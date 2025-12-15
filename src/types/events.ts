@@ -1,10 +1,10 @@
 export default interface Event {
-  id:string,
+  id: string,
   title: string;
   status: string;
   isFeatured: boolean;
   participantsCount?: number;
-  date: string ;
+  date: string;
   location: string;
   type: string;
   action: {
@@ -13,7 +13,9 @@ export default interface Event {
   };
   description?: string;
   image: {
-    Local?: string; 
+    Local?: {
+      url: string
+    }
     cloudinaryUrl?: string;
   };
 }
