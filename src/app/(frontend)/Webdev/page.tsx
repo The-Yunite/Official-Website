@@ -250,9 +250,9 @@ export default function WebDevPage() {
         <h2 className="text-3xl font-bold text-black text-center mb-14">Showcase of Our Work</h2>
         <div className="grid md:grid-cols-3 gap-12">
           {[
-            { title: "Corporate Website", desc: "Enterprise site redefining digital presence.", href: "https://yourprojectlink1.com" },
-            { title: "Analytics Dashboard", desc: "Real‑time insights for a fintech startup.", href: "https://yourprojectlink2.com" },
-            { title: "Creative Landing Page", desc: "Campaign page boosting conversions.", href: "https://yourprojectlink3.com" },
+            { title: "Corporate Website", desc: "Enterprise site redefining digital presence.", href: "/" },
+            { title: "Analytics Dashboard", desc: "Real‑time insights for a fintech startup.", href: "/" },
+            { title: "Creative Landing Page", desc: "Campaign page boosting conversions.", href: "/" },
           ].map((proj, i) => (
             <ProjectCard key={i} title={proj.title} desc={proj.desc} href={proj.href} />
           ))}
