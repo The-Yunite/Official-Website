@@ -40,7 +40,7 @@ const Footer = () => {
                         <li>Phone: <Link href={"tel:+919643748904"} >+91 9643748904</Link></li>
                         <li>Phone: <Link href={"tel:+919718301702"} >+91 9718301702</Link></li>
                         <li>Address: <Link href={"https://maps.app.goo.gl/VwGMguWRiWrXJEpp8"} >Okhla, New Delhi, India</Link></li>
-                        <li className="mt-2 flex gap-4 "><SiLinktree size={24}/> <FiInstagram size={24}/> <FaLinkedinIn size={24}/> <FaWhatsapp size={24}/></li>
+                        <li className="mt-2 flex gap-4 "><Link href={''}><SiLinktree size={24}/></Link><Link href={'https://www.linkedin.com/company/the-yunyt'}><FiInstagram size={24}/></Link><Link href={'https://www.instagram.com/theyunyt.co/'}><FaLinkedinIn size={24}/></Link><Link href={'https://api.whatsapp.com/send/?phone=9643748904&text=Hi%20Yunyt&type=phone_number'}><FaWhatsapp size={24}/></Link></li>
                     </ul>
                 </div>
             </div>

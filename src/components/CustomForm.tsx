@@ -2,6 +2,7 @@
 import axios from 'axios';
 import { ArrowUpRight } from 'lucide-react';
 import React, { useState } from 'react'
+import { validatePhone } from './CheckPhone';
 
 interface CustomFormProps {
   showHeading: boolean;
@@ -19,6 +20,10 @@ const CustomForm = ({ showHeading, clasName }: CustomFormProps) => {
 
   const onSubmit = async (e: any) => {
     e.preventDefault();
+    if (validatePhone(phone)) {
+      setResult("Plase enter a valid phone number")
+      return
+    }
     setIsSubmitting(true);
     setResult("Sending...");
 
@@ -89,6 +94,7 @@ const CustomForm = ({ showHeading, clasName }: CustomFormProps) => {
           <input
             type="tel"
             value={phone}
+            pattern="^\+?[0-9]{7,15}$"
             required
             onChange={(e) => setphone(e.target.value)}
             placeholder="Enter your phone number"
