@@ -119,10 +119,10 @@ export default function TechLabPage() {
                     <p className="text-sm text-gray-600 mt-2">{s.subDescription}</p>
                   </div>
                   <div className="mt-6 flex gap-3">
-                    <Link href="/" className="inline-flex items-center gap-2 bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-md py-2 px-4 font-semibold hover:shadow-lg transition">
+                    <Link href="/Webdev" className="inline-flex items-center gap-2 bg-linear-to-r from-[#ff6b35] to-[#b9ff66] text-black rounded-full shadow-md py-2 px-4 font-semibold hover:shadow-lg transition">
                       Learn More <ArrowUpRight size={18} />
                     </Link>
-                    <Link href="/" className="inline-flex items-center gap-2 border border-black rounded-full py-2 px-4 font-semibold text-black hover:bg-black/10 transition">
+                    <Link href="/quote" className="inline-flex items-center gap-2 border border-black rounded-full py-2 px-4 font-semibold text-black hover:bg-black/10 transition">
                       Get Quote
                     </Link>
                   </div>

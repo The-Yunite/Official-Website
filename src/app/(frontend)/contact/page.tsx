@@ -5,7 +5,6 @@ import { Mail, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import Faqs from '@/components/Faqs';
 import axios from 'axios';
-import { number } from 'payload/shared';
 import { validatePhone } from '@/components/CheckPhone';
 
 export default function ContactPage() {

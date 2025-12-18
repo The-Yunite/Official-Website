@@ -154,7 +154,7 @@ export default function HomePage() {
             className="w-full inline-block scroll-m-20 text-5xl md:text-7xl font-extrabold tracking-tight text-shadow-xs "
           />
           <BlurText
-            text="From hackathons to corporate events, workshops to Tech and printing solutions, Yunyt provides everything you need to make your brand memorable and stand out."
+            text="Yunyt is a tech-first solutions team helping startups and businesses build, optimize, and scale digital products through web platforms, automation, and practical AI. We also organize tech events, workshops, and hands-on sessions, creating communities that learn, collaborate, and innovate around real-world technology."
             delay={0}
             animateBy="words"
             direction="bottom"
