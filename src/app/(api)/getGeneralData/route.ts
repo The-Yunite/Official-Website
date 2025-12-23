@@ -28,10 +28,18 @@ export async function GET() {
             }
         });
 
+        const testimonials = await payload.find({
+            collection: 'testimonials',
+            where: {
+                isFeatured: { equals: true }
+            }
+        });
+
         return Response.json(
             { success: true,
               featuredEvents:featuredEvents.docs,
-              featuredTechServices:featuredTechServices.docs
+              featuredTechServices:featuredTechServices.docs,
+              testimonials:testimonials.docs
             },
             { status: 200 }
         );

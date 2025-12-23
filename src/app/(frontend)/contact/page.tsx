@@ -41,7 +41,7 @@ export default function ContactPage() {
           'Content-Type': 'application/json'
         }
       })
-      console.log(response)
+      // console.log(response)
 
       const confirmMssage = response.data.doc.form.confirmationMessage.root.children[0].children[0].text;
 
@@ -116,7 +116,7 @@ export default function ContactPage() {
                 required
                 value={firstName}
                 onChange={(e)=> setfirstName(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-300 transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent placeholder-gray-400 transition-all"
               />
               <input
                 type="text"

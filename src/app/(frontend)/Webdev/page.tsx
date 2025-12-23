@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react"
 import BlurText from "@/components/BlurText"
-import { Code, Smartphone, ShoppingCart, Cloud, Shield, Layout, ExternalLink } from "lucide-react"
+import { Code, Smartphone, ShoppingCart, Cloud, Shield, Layout, ExternalLink, Star } from "lucide-react"
 import Link from "next/link"
 
 
@@ -52,7 +52,7 @@ function ImpactCard({ stat, label }: ImpactCardProps) {
   return (
     <div
       ref={ref}
-      className={`rounded-3xl bg-gradient-to-br from-white/90 to-white/70 border border-gray-200 shadow-lg p-10 transition-transform duration-500
+      className={`rounded-3xl bg-linear-to-br from-white/90 to-white/70 border border-gray-200 shadow-lg p-10 transition-transform duration-500
                   ${inView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
                   hover:shadow-2xl hover:shadow-[#ff6b35]/30 hover:-translate-y-2 hover:scale-[1.03]`}
     >
@@ -280,10 +280,11 @@ export default function WebDevPage() {
           ].map((t, i) => (
             <div
               key={i}
-              className="rounded-3xl bg-white/80 border border-gray-200 shadow-md p-10 transition hover:shadow-xl hover:shadow-[#ff6b35]/30"
+              className="rounded-3xl bg-white/80 border border-gray-200 shadow-md p-10 pt-7 transition hover:shadow-xl hover:shadow-[#ff6b35]/30"
             >
+              <span className="flex gap-1">{Array(5).fill(<Star stroke="1" className=" fill-yellow-400 mb-3"/>)}</span>
               <p className="text-gray-700 italic mb-6">“{t.quote}”</p>
-              <h4 className="text-black font-semibold">{t.name}</h4>
+              <h4 className="text-black font-semibold">— {t.name}</h4>
             </div>
           ))}
         </div>

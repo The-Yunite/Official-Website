@@ -1,0 +1,33 @@
+import { getPayload } from 'payload'
+import config from '@/payload.config'
+import { notFound } from 'next/navigation'
+import { Form } from '@/components/blocks/Form'
+
+export default async function Page({ params }: { params: { slug: string[] } }) {
+  const payload = await getPayload({ config })
+  const { slug } = await params
+
+  // 1. Find the page in the database
+  const result = await payload.find({
+    //@ts-ignore
+    collection: 'formPages',
+    where: { slug: { equals: slug[slug.length - 1] } },
+  })
+
+  const page :any = result.docs[0]
+  if (!page) return notFound()
+
+  // 2. Render the layout blocks
+  return (
+    <main className="container mx-auto py-24 text-black">
+      <h1 className="text-4xl font-bold text-center mb-10">{page.title}</h1>
+      <h2 className="text-xl font-bold text-center mb-10">{page.description}</h2>
+      {page.layout?.map((block:any, i:any) => {
+        if (block.blockType === 'formBlock' && typeof block.form !== 'string') {
+          return <Form key={i} form={block.form} />
+        }
+        return null
+      })}
+    </main>
+  )
+}

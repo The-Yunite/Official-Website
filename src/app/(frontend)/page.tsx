@@ -4,29 +4,20 @@ import Link from 'next/link'
 import BlurText from '@/components/BlurText'
 import SpotlightCard from '@/components/SpotlightCard'
 import CustomForm from '@/components/CustomForm'
-import {
-  ArrowUpRight,
-  Bot,
-  Building2,
-  CodeXml,
-  Globe,
-  GraduationCap,
-  Mic,
-  Shield,
-  Workflow,
-  CheckCircle2,
-} from 'lucide-react'
+import {ArrowUpRight, Bot, Building2, CodeXml, Globe, GraduationCap, Mic, Shield, Workflow, CheckCircle2} from 'lucide-react'
 import CustomEventCard from '@/components/CustomEventCard'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Event from '@/types/events'
 import TechService from '@/types/techServices'
+import Testimonial from '@/components/Testimonial'
 
 export default function HomePage() {
 
   const [fetching, setFetching] = useState<boolean>()
   const [featuredEvents, setfeaturedEvents] = useState<Event[]>([])
   const [featuredTechServices, setfeaturedTechServices] = useState<TechService[]>([])
+  const [testimonials, setTestimonials] = useState<any[]>([])
 
   useEffect(() => {
 
@@ -36,10 +27,12 @@ export default function HomePage() {
 
         const storedFeaturedEvents = sessionStorage.getItem('featuredEvents');
         const storedFeaturedTechServices = sessionStorage.getItem('featuredTechServices');
+        const storedTestimonials = sessionStorage.getItem('testimonials');
 
-        if (storedFeaturedEvents && storedFeaturedTechServices) {
+        if (storedFeaturedEvents && storedFeaturedTechServices && storedTestimonials) {
           setfeaturedEvents(JSON.parse(storedFeaturedEvents));
           setfeaturedTechServices(JSON.parse(storedFeaturedTechServices));
+          setTestimonials(JSON.parse(storedTestimonials));
           setFetching(false);
         }
         else {
@@ -56,8 +49,11 @@ export default function HomePage() {
             setFetching(false);
             const eventData = apiResponse.featuredEvents;
             const techData = apiResponse.featuredTechServices;
+            const testimonialData = apiResponse.testimonials;
+            setTestimonials(testimonialData);
             setfeaturedEvents(eventData);
             setfeaturedTechServices(techData);
+            sessionStorage.setItem('testimonials', JSON.stringify(testimonialData))
             sessionStorage.setItem('featuredEvents', JSON.stringify(eventData))
             sessionStorage.setItem('featuredTechServices', JSON.stringify(techData))
           }
@@ -287,6 +283,21 @@ export default function HomePage() {
           >
             View More <ArrowUpRight className="inline-block" />
           </Link>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id='testimonials' className="w-full md:w-5/6 my-16 text-center">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-bold text-5xl text-black">Testimonials</h2>
+          <p className="text-gray-700 my-5 font-semibold text-xl">
+            Hear from our satisfied clients and partners
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 gap-12 text-left">
+          {testimonials.map((testimonial, idx) => (
+            <Testimonial key={idx} testimonial={testimonial}></Testimonial>
+          ))}
         </div>
       </section>
 

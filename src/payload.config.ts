@@ -12,6 +12,10 @@ import { Events } from './collections/Events'
 import { JobOpenings } from './collections/JobOpenings'
 import { TechServices } from './collections/TechServices'
 import { Faqs } from './collections/Faqs'
+import { FormPages } from './collections/FormPages'
+import { EventPages } from './collections/EventPages'
+import { ServicePages } from './collections/ServicePages'
+import { Testimonials } from './collections/Testimonials'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,7 +27,18 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Events, TechServices, Faqs, JobOpenings],
+  collections: [
+    Users, 
+    Media, 
+    Events, 
+    TechServices, 
+    Faqs, 
+    JobOpenings, 
+    FormPages,
+    EventPages,
+    ServicePages,
+    Testimonials
+  ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -39,6 +54,20 @@ export default buildConfig({
     // storage-adapter-placeholder
     formBuilderPlugin({
       // see below for a list of available options
+      fields: {
+        text: true,
+        textarea: true,
+        select: true,
+        radio: true,
+        email: true,
+        state: true,
+        country: true,
+        checkbox: true,
+        number: true,
+        message: true,
+        date: true,
+        payment: false,
+      },
     }),
   ],
 })
