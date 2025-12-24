@@ -6,7 +6,13 @@ import { RichText } from '@/components/blocks/RichText'
 import { GridComponent } from '@/components/blocks/GridComp'
 import TestimonialComp from '@/components/blocks/TestimonialComp'
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
+type PageProps = {
+  params: Promise<{
+    slug: string[]
+  }>
+}
+
+export default async function Page({ params }: PageProps) {
   const payload = await getPayload({ config })
   const { slug } = await params
 

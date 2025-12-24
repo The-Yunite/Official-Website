@@ -2,7 +2,13 @@ import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { notFound } from 'next/navigation'
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
+type PageProps = {
+  params: Promise<{
+    slug: string[]
+  }>
+}
+
+export default async function Page({ params }: PageProps) {
   const payload = await getPayload({ config })
   const { slug } = await params
 
